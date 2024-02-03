@@ -32,7 +32,7 @@ jobs:
           targetPlatform: WebGL
 
       # Output
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4.3.0
         with:
           name: Build
           path: build
@@ -41,9 +41,9 @@ jobs:
       - uses: actions/download-artifact@v4.1.1
         with:
           # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
-          name: Build
+          #name: Build
           # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
-          #path: optional
+          #path: build
 
       # Publish to Itch.io
       - uses: manleydev/butler-publish-itchio-action@v1.0.3
@@ -52,6 +52,6 @@ jobs:
           CHANNEL: HTML
           ITCH_GAME: chill-devs-chill-jam-6-untitled
           ITCH_USER: lrdazrl
-          PACKAGE: Build
+          PACKAGE: build/Build
 
     
