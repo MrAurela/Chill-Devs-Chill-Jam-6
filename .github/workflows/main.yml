@@ -36,3 +36,22 @@ jobs:
         with:
           name: Build
           path: build
+
+      # Save
+      - uses: actions/download-artifact@v4.1.1
+        with:
+          # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
+          name: Build
+          # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
+          #path: optional
+
+      # Publish to Itch.io
+      - uses: manleydev/butler-publish-itchio-action@v1.0.3
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.ITCH_IO_API_KEY }}
+          CHANNEL: HTML
+          ITCH_GAME: chill-devs-chill-jam-6-untitled
+          ITCH_USER: lrdazrl
+          PACKAGE: Build
+
+    
