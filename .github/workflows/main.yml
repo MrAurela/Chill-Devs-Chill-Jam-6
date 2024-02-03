@@ -1,6 +1,9 @@
 name: Actions
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - "main"
 
 jobs:
   build:
@@ -54,5 +57,3 @@ jobs:
           ITCH_GAME: chill-devs-chill-jam-6-untitled
           ITCH_USER: lrdazrl
           PACKAGE: ./Build
-
-    
