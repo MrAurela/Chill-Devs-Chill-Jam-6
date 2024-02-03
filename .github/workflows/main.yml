@@ -41,7 +41,7 @@ jobs:
       - uses: actions/download-artifact@v4.1.1
         with:
           # Name of the artifact to download. If unspecified, all artifacts for the run are downloaded.
-          #name: Build
+          name: Build
           # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
           #path: build
 
