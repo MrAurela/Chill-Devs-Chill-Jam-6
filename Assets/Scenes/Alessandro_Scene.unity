@@ -394,8 +394,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapShape: 0
-  mapWidth: 2
-  mapHeight: 2
+  mapWidth: 12
+  mapHeight: 6
   hexOrientation: 1
   hexRadius: 0.5
   hexPrefab: {fileID: 4477776453795517641, guid: c53c988d5719aad4ca5a4d51b081a8a6, type: 3}
