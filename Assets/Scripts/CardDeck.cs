@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class CardDeck : MonoBehaviour
 {
-    public Card[] cards;
+    [SerializeField] GameObject cardPrefab;
+
+    //public Card[] cards;
+    public CardData[] cards;
 
     public void DrawCard()
     {
-        Debug.Log("Draw card");
-
         // Draw a card from the deck
-        Card card = cards[Random.Range(0, cards.Length)];
-        FindObjectOfType<Hand>().AddCard(Instantiate(card));
+        GameObject gameObject = Instantiate(cardPrefab, transform);
+        Card card = gameObject.GetComponent<Card>();
+        CardData cardData = cards[Random.Range(0, cards.Length)];
+        card.Set(cardData);
+        FindObjectOfType<Hand>().AddCard(card);
     }
 }

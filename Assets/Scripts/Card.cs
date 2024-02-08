@@ -8,27 +8,27 @@ using UnityEngine.EventSystems;
 
 public class Card : MonoBehaviour
 {
-    [SerializeField] string title, description;
-    [SerializeField] Sprite image;
     [SerializeField] TextMeshProUGUI titleField, descriptionField;
     [SerializeField] Image imageField;
-    [SerializeField] Color color;
 
     private Vector3 startLocation, startSize;
 
-    // Start is called before the first frame update
-    void Start()
+    public CardData card;
+
+    public void Set(CardData card)
     {
-        titleField.text = title;
-        descriptionField.text = description;
-        if (image != null) imageField.sprite = image;
-        else imageField.color = color;
+        this.card = card;
+
+        titleField.text = card.title;
+        descriptionField.text = card.description;
+        if (card.image != null) imageField.sprite = card.image;
+        else imageField.color = card.color;
     }
 
     void Excecute(GameObject target)
     {
-        Debug.Log("Execute called on: " + target.name);
-        target.GetComponent<Renderer>().material.color = color;
+        Debug.Log("Played card: " + card.title);
+        target.GetComponent<Renderer>().material.color = card.color;
 
         // Remove the card from the hand and draw a new card. Destroy the card object at the end.
         FindObjectOfType<Hand>().RemoveCard(this);

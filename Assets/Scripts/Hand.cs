@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hand : MonoBehaviour
 {
-    [SerializeField] GameObject[] cardLocations;
+    public GameObject[] positions;
 
     public List<Card> cards;
     public int max_cards = 3;
@@ -18,16 +18,16 @@ public class Hand : MonoBehaviour
         // Add starting cards
         for (int i = 0; i < max_cards; i++) FindObjectOfType<CardDeck>().DrawCard();
     }
-
+    
+    // Replace missing card
     public void AddCard(Card card)
     {
-        cards.Add(card);
         for (int i = 0; i < cards.Count; i++)
         {
             if (cards[i] == null)
             {
                 cards[i] = card;
-                card.transform.SetParent(cardLocations[i].transform);
+                card.transform.SetParent(positions[i].transform);
                 card.transform.localPosition = Vector3.zero;
                 return;
             }
