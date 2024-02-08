@@ -29,7 +29,9 @@ public class Grid : MonoBehaviour {
 			new CubeIndex(-1, 1, 0), 
 			new CubeIndex(-1, 0, 1), 
 			new CubeIndex(0, -1, 1)
-		}; 
+		};
+
+	[SerializeField] private GameObject hexPrefab;
 
 	#region Getters and Setters
 	public Dictionary<string, GameObject> Tiles {

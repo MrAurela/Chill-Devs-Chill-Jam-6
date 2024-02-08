@@ -27,6 +27,7 @@ public class Card : MonoBehaviour
 
     void Excecute(GameObject target)
     {
+        //Grid.inst.IsTilePlayable(idx)
         CubeIndex idx = target.GetComponentInParent<TerrainTile>().index;
         Grid.inst.SwapTile(idx, card.tileType);
 

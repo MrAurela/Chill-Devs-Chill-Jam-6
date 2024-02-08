@@ -636,6 +636,7 @@ MonoBehaviour:
   hexOrientation: 1
   hexRadius: 0.5
   tileList: []
+  hexPrefab: {fileID: 4477776453795517641, guid: c53c988d5719aad4ca5a4d51b081a8a6, type: 3}
 --- !u!4 &1211475454
 Transform:
   m_ObjectHideFlags: 0
