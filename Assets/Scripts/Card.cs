@@ -29,12 +29,24 @@ public class Card : MonoBehaviour
     {
         //Grid.inst.IsTilePlayable(idx)
         CubeIndex idx = target.GetComponentInParent<TerrainTile>().index;
-        Grid.inst.SwapTile(idx, card.tileType);
+        
+        if (Grid.inst.TryPlaceTile(idx, card.tileType))
+        {
+            Debug.Log("Good Card Placement");
+            Grid.inst.SwapTile(idx, card.tileType);
+            //Grid.inst.Neighbours(idx);
 
-        // Remove the card from the hand and draw a new card. Destroy the card object at the end.
-        FindObjectOfType<Hand>().RemoveCard(this);
-        FindObjectOfType<CardDeck>().DrawCard();
-        Destroy(gameObject);
+            // Remove the card from the hand and draw a new card. Destroy the card object at the end.
+            FindObjectOfType<Hand>().RemoveCard(this);
+            FindObjectOfType<CardDeck>().DrawCard();
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("Bad Card Placement");
+            transform.position = startLocation;
+            transform.localScale = startSize;
+        }
     }
 
     

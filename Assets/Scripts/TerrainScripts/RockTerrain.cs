@@ -10,13 +10,4 @@ public class RockTerrain : TerrainTile
         tileType = Enums.TerrainType.ROCK;
         base.SpawnPrefab();
     }
-
-    public override void AffectNearTiles()
-    {
-
-    }
-    public override void UpdateTile()
-    {
-
-    }
 }

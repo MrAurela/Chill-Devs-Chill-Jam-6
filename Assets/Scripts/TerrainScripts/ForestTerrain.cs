@@ -10,17 +10,4 @@ public class ForestTerrain : TerrainTile
         tileType = Enums.TerrainType.FOREST;
         base.SpawnPrefab();
     }
-
-    private void Awake()
-    {
-    }
-
-    public override void AffectNearTiles()
-    {
-
-    }
-    public override void UpdateTile()
-    {
-
-    }
 }

@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using UnityEngine.UIElements;
 using Unity.VisualScripting;
+using System.Reflection;
 
 public class Grid : MonoBehaviour {
 	public static Grid inst;
@@ -38,27 +39,87 @@ public class Grid : MonoBehaviour {
 	}
 	#endregion
 
+	public bool TryPlaceTile(CubeIndex _index, Enums.TerrainType _type)
+	{
+		Debug.Log("CHECKING PLACING RULES");
+		TerrainPlacingRules placingRules = null;
+
+        switch (_type)
+        {
+            case Enums.TerrainType.DESOLATE:
+                placingRules = Resources.Load<TerrainPlacingRules>("TerrainData/DesolatePlacingRule");
+                break;
+            case Enums.TerrainType.MEADOW:
+                placingRules = Resources.Load<TerrainPlacingRules>("TerrainData/MeadowPlacingRule");
+                break;
+            case Enums.TerrainType.FOREST:
+                placingRules = Resources.Load<TerrainPlacingRules>("TerrainData/ForestPlacingRule");
+                break;
+            case Enums.TerrainType.ROCK:
+                placingRules = Resources.Load<TerrainPlacingRules>("TerrainData/RockPlacingRule");
+                break;
+            case Enums.TerrainType.SWAMP:
+                placingRules = Resources.Load<TerrainPlacingRules>("TerrainData/SwampPlacingRule");
+                break;
+            case Enums.TerrainType.WATER:
+                placingRules = Resources.Load<TerrainPlacingRules>("TerrainData/WaterPlacingRule");
+                break;
+            default:
+                Debug.LogError("Error in enum terrain type");
+                break;
+        }
+
+		if(placingRules == null)
+		{
+			Debug.Log("Error loading placing rules resource");
+			return false;
+		}
+
+        int bad = 0, good = 0, mandatory = 0;
+        Dictionary<string, Enums.TerrainType> nearTerrains = Neighbours(_index);
+
+        foreach (Enums.TerrainType near in nearTerrains.Values)
+        {
+            if (placingRules.forbiddenTerrains.Contains(near))
+            {
+                bad++;
+            }
+            else if (placingRules.allowedTerrains.Contains(near))
+            {
+                good++;
+            }
+			else if(placingRules.mandatoryTerrain == near)
+			{
+				mandatory++;
+			}
+        }
+
+		Debug.Log("Good Counter: " + good);
+		Debug.Log("Bad Counter: " + bad);
+
+        switch (placingRules.priority)
+        {
+            case Enums.RulePriority.BAD:
+                return bad <= placingRules.maxNegativeRule;
+
+            case Enums.RulePriority.GOOD:
+                return good >= placingRules.minPositiveRule;
+
+            case Enums.RulePriority.BOTH:
+                return (bad <= placingRules.maxNegativeRule && good >= placingRules.minPositiveRule);
+
+            case Enums.RulePriority.MANDATORY_AND_GOOD:
+                return (mandatory >= placingRules.mandatoryTiles && good >= placingRules.minPositiveRule);
+        }
+
+        return false;
+	}
 
 	public void SwapTile(CubeIndex _idx, Enums.TerrainType _type)
 	{
-		Debug.Log("SWAPPING TILE AT: " + _idx.ToString());
-
-        foreach (KeyValuePair<string, GameObject> entry in grid)
-        {/*
-            Debug.Log("Key: " + entry.Key);
-            Debug.Log("Terrain: " + entry.Value);
-			*/
-			if(entry.Key == _idx.ToString())
-			{
-				Debug.Log("Found the Key");
-                Debug.Log("Key: " + entry.Key);
-                Debug.Log("Terrain: " + entry.Value.GetComponent<TerrainTile>());
-            }
-        }
-		Debug.Log("___________________________________________________");
         if (TileObjectAt(_idx) == null)
 		{
-			Debug.Log("No Object in list at" + _idx);
+			Debug.LogError("No Object in list at" + _idx);
             return;
 		}
 
@@ -156,46 +217,58 @@ public class Grid : MonoBehaviour {
 		return TileObjectAt(new CubeIndex(x,z));
 	}
 
-	public List<GameObject> Neighbours(CubeIndex index) {
-		List<GameObject> ret = new List<GameObject>();
+	public Dictionary<string, Enums.TerrainType> Neighbours(CubeIndex index) {
+        Dictionary<string, Enums.TerrainType> dic = new Dictionary<string, Enums.TerrainType>();
 		CubeIndex o;
 
-		for(int i = 0; i < 6; i++) {
+		for (int i = 0; i < 6; i++)
+		{
 			o = index + directions[i];
-			if(grid.ContainsKey(o.ToString()))
-				ret.Add(grid[o.ToString()]);
-		}
-		return ret;
-	}
-/*
-	public List<TerrainTile> TilesInRange(TerrainTile center, int range){
-		//Return tiles rnage steps from center, http://www.redblobgames.com/grids/hexagons/#range
-		List<TerrainTile> ret = new List<TerrainTile>();
-		CubeIndex o;
+			if (grid.ContainsKey(o.ToString()))
+			{
+				TerrainTile t = grid[o.ToString()].GetComponent<TerrainTile>();
 
-		for(int dx = -range; dx <= range; dx++){
-			for(int dy = Mathf.Max(-range, -dx-range); dy <= Mathf.Min(range, -dx+range); dy++){
-				o = new CubeIndex(dx, dy, -dx-dy) + center.index;
-				if(grid.ContainsKey(o.ToString()))
-					ret.Add(grid[o.ToString()]);
+                if (t != null)
+				{
+					dic.Add(t.index.ToString(), t.tileType);
+				}
+			}
+			else
+			{
+                dic.Add(o.ToString(), Enums.TerrainType.NULL);
 			}
 		}
-		return ret;
-	}
+        return dic;
+    }
+    /*
+        public List<TerrainTile> TilesInRange(TerrainTile center, int range){
+            //Return tiles rnage steps from center, http://www.redblobgames.com/grids/hexagons/#range
+            List<TerrainTile> ret = new List<TerrainTile>();
+            CubeIndex o;
 
-	public List<TerrainTile> TilesInRange(CubeIndex index, int range){
-		return TilesInRange(TileAt(index), range);
-	}
+            for(int dx = -range; dx <= range; dx++){
+                for(int dy = Mathf.Max(-range, -dx-range); dy <= Mathf.Min(range, -dx+range); dy++){
+                    o = new CubeIndex(dx, dy, -dx-dy) + center.index;
+                    if(grid.ContainsKey(o.ToString()))
+                        ret.Add(grid[o.ToString()]);
+                }
+            }
+            return ret;
+        }
 
-	public List<TerrainTile> TilesInRange(int x, int y, int z, int range){
-		return TilesInRange(TileAt(x,y,z), range);
-	}
+        public List<TerrainTile> TilesInRange(CubeIndex index, int range){
+            return TilesInRange(TileAt(index), range);
+        }
 
-	public List<TerrainTile> TilesInRange(int x, int z, int range){
-		return TilesInRange(TileAt(x,z), range);
-	}
-*/
-	public int Distance(CubeIndex a, CubeIndex b){
+        public List<TerrainTile> TilesInRange(int x, int y, int z, int range){
+            return TilesInRange(TileAt(x,y,z), range);
+        }
+
+        public List<TerrainTile> TilesInRange(int x, int z, int range){
+            return TilesInRange(TileAt(x,z), range);
+        }
+    */
+    public int Distance(CubeIndex a, CubeIndex b){
 		return Mathf.Abs(a.x - b.x) + Mathf.Abs(a.y - b.y) + Mathf.Abs(a.z - b.z);
 	}
 

@@ -6,12 +6,13 @@ using Unity.VisualScripting;
 
 public class TerrainTile : MonoBehaviour {
 
+	protected TerrainPlacingRules placingRule;
+
 	public string resourcePath;
 
 	[HideInInspector]
     public TerrainType tileType;
     public CubeIndex index;
-
     public Token token;
 
     public static Vector3 Corner(Vector3 origin, float radius, int corner, HexOrientation orientation){
@@ -42,8 +43,15 @@ public class TerrainTile : MonoBehaviour {
 		Destroy(this);
 	}
 
-    public virtual void AffectNearTiles()    {    }
-    public virtual void UpdateTile()   {    }
+    public virtual bool CheckPlacingRules(CubeIndex _index)
+    {
+        return true;
+    }
+
+    public virtual int CheckRules()
+	{
+		return 0;
+	}
 
     #region Coordinate Conversion Functions
     public static OffsetIndex CubeToEvenFlat(CubeIndex c) {

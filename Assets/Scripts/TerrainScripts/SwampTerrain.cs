@@ -10,12 +10,4 @@ public class SwampTerrain : TerrainTile
         tileType = Enums.TerrainType.SWAMP;
         base.SpawnPrefab();
     }
-    public override void AffectNearTiles()
-    {
-
-    }
-    public override void UpdateTile()
-    {
-
-    }
 }

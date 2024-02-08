@@ -1,9 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
-using UnityEngine;
-using static UnityEngine.UI.Image;
-
 public static class Enums
 {
     public enum TerrainType
@@ -16,6 +10,15 @@ public static class Enums
         ROCK,
         WATER
     }
+
+    public enum RulePriority
+    {
+        BAD,
+        GOOD,
+        BOTH,
+        MANDATORY_AND_GOOD
+    }
+
     public enum CreatureType
     {
         NULL,

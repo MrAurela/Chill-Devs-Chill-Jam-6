@@ -10,17 +10,4 @@ public class MeadowTerrain : TerrainTile
         tileType = Enums.TerrainType.MEADOW;
         base.SpawnPrefab();
     }
-
-    private void Awake()
-    {
-    }
-
-    public override void AffectNearTiles()
-    {
-
-    }
-    public override void UpdateTile()
-    {
-
-    }
 }
