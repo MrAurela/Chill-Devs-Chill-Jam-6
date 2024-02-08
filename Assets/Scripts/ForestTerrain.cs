@@ -2,23 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundTile : TileClass
+public class ForestTerrain : TerrainTile
 {
-    private void Awake()
+    public override void SpawnPrefab()
     {
-        tileType = TileUtils.TileType.GROUND;
+        resourcePath = "TerrainTiles/ForestTerrain";
+        base.SpawnPrefab();
     }
 
+    private void Awake()
+    {
+        tileType = Enums.TerrainType.FOREST;
+    }
     // Start is called before the first frame update
     void Start()
     {
-       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public override void AffectNearTiles()
     {

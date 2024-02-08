@@ -2,13 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NullTile : TileClass
+public class NullTerrain : TerrainTile
 {
-    private void Awake()
-    {
-        tileType = TileUtils.TileType.NULL;
-    }
-
     // Start is called before the first frame update
     void Start()
     {

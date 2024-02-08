@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EmptyTile : TileClass
+public class DesolateTerrain : TerrainTile
 {
+    public override void SpawnPrefab()
+    {
+        resourcePath = "TerrainTiles/DesolateTerrain";
+        base.SpawnPrefab();
+    }
+
     private void Awake()
     {
-        tileType = TileUtils.TileType.EMPTY;
+        tileType = Enums.TerrainType.DESOLATE;
     }
     // Start is called before the first frame update
     void Start()
