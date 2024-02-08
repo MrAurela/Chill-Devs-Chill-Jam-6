@@ -32,6 +32,7 @@ public class TerrainTile : MonoBehaviour {
 			go.transform.parent = gameObject.transform;
 		}
 	}
+
     public virtual void Delete() 
 	{
 		Transform[] tr = gameObject.GetComponentsInChildren<Transform>();

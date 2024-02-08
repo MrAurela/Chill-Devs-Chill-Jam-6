@@ -19,9 +19,8 @@ public class Grid : MonoBehaviour {
 
 	//Internal variables
 	private Dictionary<string, GameObject> grid = new Dictionary<string, GameObject>();
-	public List<string> tileList = new List<string>();
 
-	private CubeIndex[] directions = 
+    private CubeIndex[] directions = 
 		new CubeIndex[] {
 			new CubeIndex(1, -1, 0), 
 			new CubeIndex(1, 0, -1), 
@@ -42,17 +41,21 @@ public class Grid : MonoBehaviour {
 
 	public void SwapTile(CubeIndex _idx, Enums.TerrainType _type)
 	{
+		Debug.Log("SWAPPING TILE AT: " + _idx.ToString());
+
         foreach (KeyValuePair<string, GameObject> entry in grid)
-        {
+        {/*
             Debug.Log("Key: " + entry.Key);
             Debug.Log("Terrain: " + entry.Value);
-
+			*/
 			if(entry.Key == _idx.ToString())
 			{
 				Debug.Log("Found the Key");
-			}
+                Debug.Log("Key: " + entry.Key);
+                Debug.Log("Terrain: " + entry.Value.GetComponent<TerrainTile>());
+            }
         }
-
+		Debug.Log("___________________________________________________");
         if (TileObjectAt(_idx) == null)
 		{
 			Debug.Log("No Object in list at" + _idx);
@@ -62,7 +65,7 @@ public class Grid : MonoBehaviour {
 		GameObject ob = TileObjectAt(_idx);
 		TerrainTile newTerrain = null;
         TileObjectAt(_idx).GetComponent<TerrainTile>().Delete();
-
+		
 		switch(_type)
 		{
 			case Enums.TerrainType.DESOLATE:
@@ -74,14 +77,24 @@ public class Grid : MonoBehaviour {
             case Enums.TerrainType.FOREST:
                 newTerrain = ob.AddComponent<ForestTerrain>();
                 break;
+            case Enums.TerrainType.ROCK:
+                newTerrain = ob.AddComponent<RockTerrain>();
+                break;
+            case Enums.TerrainType.SWAMP:
+                newTerrain = ob.AddComponent<SwampTerrain>();
+                break;
+            case Enums.TerrainType.WATER:
+                newTerrain = ob.AddComponent<WaterTerrain>();
+                break;
             default:
 				Debug.LogError("Error in enum terrain type");
 				break;
         }
 		if(newTerrain != null)
 		{
+			newTerrain.index = _idx;
             newTerrain.SpawnPrefab();
-			grid[_idx.ToString()] = ob;
+			//grid[_idx.ToString()] = ob;
         }
     }
 
@@ -127,7 +140,6 @@ public class Grid : MonoBehaviour {
         }
 
         grid.Clear();
-		tileList.Clear();
 	}
 
 	public GameObject TileObjectAt(CubeIndex index){
@@ -248,7 +260,6 @@ public class Grid : MonoBehaviour {
 					tile = CreateHexGO( pos,("Hex[" + q + "," + r + "," + (-q-r).ToString() + "]"));
                     tile.index = new CubeIndex(q, r, -q - r);
                     grid.Add(tile.index.ToString(), tile.gameObject);
-                    tileList.Add(tile.index.ToString());
 				}
 			}/*
             foreach (KeyValuePair<string, TerrainTile> entry in grid)
