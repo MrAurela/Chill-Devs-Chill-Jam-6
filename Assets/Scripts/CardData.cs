@@ -10,20 +10,17 @@ public class CardData : ScriptableObject
     public Sprite image;
     public Color color;
 
-    public enum CardType { Tile, Token, Event}
+    public enum CardType { Tile, Token, Event }
     public CardType cardType;
 
-    public enum TileType { Meadow, Forest, Swamp, Rock, Water, Desolate, None}
-    public TileType tileType;
+    public Enums.TerrainType tileType;
 
     // If Card is a Token
     // If multiple tokens, randomly choose one
-    public enum TokenType { Bird, Hawk, Rabbit, Bear, Wolf, SmallFish, BigFish, Deer, WildBoar, Heron, Raccoon, Trash, Human, Fire, None}
+    public enum TokenType { Bird, Hawk, Rabbit, Bear, Wolf, SmallFish, BigFish, Deer, WildBoar, Heron, Raccoon, Trash, Human, Fire, None }
     public TokenType[] tokenType;
 
     // Probability to add a token to the tile
     public float probability;
-
-    
 
 }

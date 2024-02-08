@@ -13,7 +13,8 @@ public static class Enums
         MEADOW,
         SWAMP,
         FOREST,
-        ROCK
+        ROCK,
+        WATER
     }
     public enum CreatureType
     {

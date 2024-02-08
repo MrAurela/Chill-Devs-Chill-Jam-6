@@ -27,8 +27,8 @@ public class Card : MonoBehaviour
 
     void Excecute(GameObject target)
     {
-        Debug.Log("Played card: " + card.title);
-        target.GetComponent<Renderer>().material.color = card.color;
+        CubeIndex idx = target.GetComponentInParent<TerrainTile>().index;
+        Grid.inst.SwapTile(idx, card.tileType);
 
         // Remove the card from the hand and draw a new card. Destroy the card object at the end.
         FindObjectOfType<Hand>().RemoveCard(this);
@@ -73,6 +73,7 @@ public class Card : MonoBehaviour
         //Get any Hex type GameObject that mouse hovers over:
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(pointer.position);
+
         if (Physics.Raycast(ray, out hit))
         {
             GameObject objectHit = hit.transform.gameObject;

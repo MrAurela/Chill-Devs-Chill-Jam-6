@@ -17,6 +17,6 @@ MonoBehaviour:
   image: {fileID: 0}
   color: {r: 0.3333333, g: 0.19811316, b: 0.18039216, a: 1}
   cardType: 0
-  tileType: 2
+  tileType: 3
   tokenType: 09000000
   probability: 0.25
