@@ -543,7 +543,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 3.366013
+  orthographic size: 2.701293
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -813,7 +813,6 @@ MonoBehaviour:
   mapHeight: 6
   hexOrientation: 1
   hexRadius: 0.5
-  tileList: []
   hexPrefab: {fileID: 4477776453795517641, guid: c53c988d5719aad4ca5a4d51b081a8a6, type: 3}
 --- !u!4 &1211475454
 Transform:
@@ -869,7 +868,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1538898308}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 3.366013
+    OrthographicSize: 2.701293
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -1020,6 +1019,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f7c326d715b008243ad1fda13acb0c3a, type: 2}
   - {fileID: 11400000, guid: 3b51e58781105b84c86d42ccfca86386, type: 2}
   - {fileID: 11400000, guid: 73dc80b7d767493449c4a8a4c4c62948, type: 2}
+  drawnCards: 0
 --- !u!4 &1644051616
 Transform:
   m_ObjectHideFlags: 0

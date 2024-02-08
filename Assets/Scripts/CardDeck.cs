@@ -8,6 +8,12 @@ public class CardDeck : MonoBehaviour
 
     //public Card[] cards;
     public CardData[] cards;
+    public int drawnCards; //TODO: make private set
+
+    void Awake()
+    {
+        drawnCards = 0;
+    }
 
     public void DrawCard()
     {
@@ -17,5 +23,8 @@ public class CardDeck : MonoBehaviour
         CardData cardData = cards[Random.Range(0, cards.Length)];
         card.Set(cardData);
         FindObjectOfType<Hand>().AddCard(card);
+
+        drawnCards += 1;
+        Debug.Log("Nro cards: " + drawnCards.ToString());
     }
 }
