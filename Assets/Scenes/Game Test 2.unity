@@ -352,7 +352,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &493287212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1049,7 +1049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1644051615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1069,6 +1069,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f7c326d715b008243ad1fda13acb0c3a, type: 2}
   - {fileID: 11400000, guid: 3b51e58781105b84c86d42ccfca86386, type: 2}
   - {fileID: 11400000, guid: 73dc80b7d767493449c4a8a4c4c62948, type: 2}
+  - {fileID: 11400000, guid: 5571af28c309c7f46a800a843fba15c3, type: 2}
+  - {fileID: 11400000, guid: 255ce20d607f1d241b7827f238c253cf, type: 2}
   drawnCards: 0
 --- !u!4 &1644051616
 Transform:
