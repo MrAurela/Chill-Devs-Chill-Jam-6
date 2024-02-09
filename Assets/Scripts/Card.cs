@@ -28,45 +28,71 @@ public class Card : MonoBehaviour
 
     void Excecute(TerrainTile target)
     {
+        IsValidPlay(card, target);
 
         CubeIndex idx = target.GetComponentInParent<TerrainTile>().index;
-        
-        if (Grid.inst.TryPlaceTile(idx, card.tileType))
+
+        if (card.cardType == Enums.CardType.TILE)
         {
-            Debug.Log("Good Card Placement");
-            Grid.inst.SwapTile(idx, card.tileType);
+            if (Grid.inst.TryPlaceTile(idx, card.tileType))
+            {
+                Debug.Log("Good Card Placement");
+                Grid.inst.SwapTile(idx, card.tileType);
+
+                // Remove the card from the hand and draw a new card. Destroy the card object at the end.
+                FindObjectOfType<Hand>().RemoveCard(this);
+                FindObjectOfType<CardDeck>().DrawCard();
+                Destroy(gameObject);
+            }
+            else
+            {
+                Debug.Log("Bad Card Placement");
+                ReturnCard();
+            }
+        } else if (card.cardType == Enums.CardType.TOKEN)
+        {
+            Grid.inst.AddToken(idx, card, card.tokenType[0]); //TODO: Choose randomly?
 
             // Remove the card from the hand and draw a new card. Destroy the card object at the end.
             FindObjectOfType<Hand>().RemoveCard(this);
             FindObjectOfType<CardDeck>().DrawCard();
             Destroy(gameObject);
         }
-        else
-        {
-            Debug.Log("Bad Card Placement");
-            transform.position = startLocation;
-            transform.localScale = startSize;
-        }
     }
 
     /* Card can be played on a spot if it or neaby space is not DESOLATE */
-    public bool IsValidPlay(TerrainTile terrain)
+    public bool IsValidPlay(CardData card, TerrainTile terrain)
     {
-        // First turn is always valid:
-        if (FindObjectOfType<CardDeck>().drawnCards == FindObjectOfType<Hand>().max_cards) return true; 
-        
-        // Replacing with the same card is always invalid:
-        if (terrain.tileType == card.tileType) return false;
-
-        // Otherwise, check that the tile has neighbour which is not DESOLATE...
-        List<Enums.TerrainType> neighbours = Grid.inst.Neighbours(terrain.index).Values.ToList();
-        for (int i = 0; i < neighbours.Count; i++)
+        //If card is a terrain:
+        if (card.cardType == Enums.CardType.TILE)
         {
-            if (neighbours[i] != Enums.TerrainType.DESOLATE) return true;
+            // First turn is always valid:
+            if (FindObjectOfType<CardDeck>().drawnCards == FindObjectOfType<Hand>().max_cards) return true;
+
+            // Replacing with the same card is always invalid:
+            if (terrain.tileType == card.tileType) return false;
+
+            // Otherwise, check that the tile has neighbour which is not DESOLATE...
+            List<Enums.TerrainType> neighbours = Grid.inst.Neighbours(terrain.index).Values.ToList();
+            for (int i = 0; i < neighbours.Count; i++)
+            {
+                if (neighbours[i] != Enums.TerrainType.DESOLATE) return true;
+            }
+
+            // ..or the tile itself is not DESOLATE.
+            return terrain.tileType != Enums.TerrainType.DESOLATE;
+        } else if (card.cardType == Enums.CardType.TOKEN)
+        {
+            // There cannot be tokens on the same space:
+            return terrain.token != null;
+        } else
+        {
+            // If card is not a terrain or a creature, it is invalid.
+            //TODO: Events
+            return false;
         }
 
-        // ..or the tile itself is not DESOLATE.
-        return terrain.tileType != Enums.TerrainType.DESOLATE;
+        
     }
 
     
@@ -115,18 +141,17 @@ public class Card : MonoBehaviour
             TerrainTile tile = objectHit.transform.parent.GetComponent<TerrainTile>();
             if (tile != null)
             {
-                if (IsValidPlay(tile))
-                {
-                    Excecute(tile);
-                    return;
-                }
-            } else
-            {
-                Debug.Log("Hit: " + objectHit.name);
+                Excecute(tile);
             }
+            
         }
-       
+
         // Otherwise, Reset the card's position and size
+        ReturnCard();
+    }
+
+    private void ReturnCard()
+    {
         transform.position = startLocation;
         transform.localScale = startSize;
     }

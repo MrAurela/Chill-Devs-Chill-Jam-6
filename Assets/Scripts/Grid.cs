@@ -159,6 +159,15 @@ public class Grid : MonoBehaviour {
         }
     }
 
+	public void AddToken(CubeIndex _idx, CardData _card, Enums.CreatureType _creatureType) //Replace CardData with Creture type
+	{
+        GameObject ob = TileObjectAt(_idx);
+		CreatureTokenObject creatureTokenObject = ob.GetComponentsInChildren<CreatureTokenObject>()[0]; //There should be only one token per tile
+		creatureTokenObject.DisplayToken(_card);
+		ob.GetComponent<TerrainTile>().token = _creatureType;
+    }
+
+
 	#region Public Methods
 	public void GenerateGrid() {
 		//Generating a new grid, clear any remants and initialise values

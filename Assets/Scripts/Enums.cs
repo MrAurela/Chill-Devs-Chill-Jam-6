@@ -28,6 +28,19 @@ public static class Enums
         BEAR,
         SMALLFISH,
         BIGFISH,
-        DEER
+        DEER,
+        WILDBOARD,
+        WOLF,
+        RACCOON,
+        TRASH,
+        HUMAN,
+        FIRE
+    }
+
+    public enum CardType
+    {
+        TILE,
+        TOKEN,
+        EVENT
     }
 }

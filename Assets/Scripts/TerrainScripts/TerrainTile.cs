@@ -13,7 +13,9 @@ public class TerrainTile : MonoBehaviour {
 	[HideInInspector]
     public TerrainType tileType;
     public CubeIndex index;
-    public CreatureToken token;
+    public Enums.CreatureType token;
+
+	private GameObject terrainGraphic;
 
     public static Vector3 Corner(Vector3 origin, float radius, int corner, HexOrientation orientation){
 		float angle = 60 * corner;
@@ -31,15 +33,20 @@ public class TerrainTile : MonoBehaviour {
 			GameObject go = Instantiate(prefab);
 			go.transform.position = gameObject.transform.position;
 			go.transform.parent = gameObject.transform;
+			terrainGraphic = go;
 		}
 	}
 
     public virtual void Delete() 
 	{
-		Transform[] tr = gameObject.GetComponentsInChildren<Transform>();
+		/*Transform[] tr = gameObject.GetComponentsInChildren<Transform>();
 
 		if (tr[1]!=null)
 			Destroy(tr[1].gameObject);
+		Destroy(this);*/
+
+		//Remove the terrain grapchic:
+		Destroy(terrainGraphic);
 		Destroy(this);
 	}
 

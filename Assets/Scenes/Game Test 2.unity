@@ -336,6 +336,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &493287211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 493287213}
+  - component: {fileID: 493287212}
+  m_Layer: 0
+  m_Name: Card Deck (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &493287212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493287211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6a5adaa86050f4fa55211899b0ca57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardPrefab: {fileID: 8189813825453595154, guid: d84e6bdcad6e85d478cb42ce3952d2de, type: 3}
+  cards:
+  - {fileID: 11400000, guid: 906f6be79b469274c924aae2dd2720a0, type: 2}
+  - {fileID: 11400000, guid: 5571af28c309c7f46a800a843fba15c3, type: 2}
+  drawnCards: 0
+--- !u!4 &493287213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493287211}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519329066
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,7 +592,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 1.81446
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -868,7 +917,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1538898308}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 1.81446
+    OrthographicSize: 4
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -999,7 +1048,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1644051615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1078,6 +1127,7 @@ SceneRoots:
   - {fileID: 137935442}
   - {fileID: 1211475454}
   - {fileID: 1644051616}
+  - {fileID: 493287213}
   - {fileID: 1114012878}
   - {fileID: 1129187673}
   - {fileID: 1405588996}
