@@ -11,108 +11,132 @@ public class TerrainPlacingRules : ScriptableObject
     [SerializeField]
     public Enums.RuleLogic mixLogic;
 
-    public bool CheckRules(List<Enums.TerrainType> _terrains)
+
+    public bool CheckRules(List<Enums.TerrainType> _terrains, bool verbose = false)
     {
         int goodChecks = 0;
-        bool result = false;
+        bool result = false, isolated = true;
 
-        foreach(Rule _rule in rules)
+    //if isolated just skip other checks, it's always prohibited
+            foreach (Enums.TerrainType nearTerrain in _terrains)
         {
-            if(_rule.kind == Enums.RuleKind.ONLY_ALLOWED) //special case for Only Allowed rule
+            if (nearTerrain != Enums.TerrainType.DESOLATE)
             {
-                result = true;
-                foreach (Enums.TerrainType nearTerrain in _terrains)
-                {
-                    foreach (Enums.TerrainType terrain in _rule.affectedTerrains)
-                    {
-                        if (terrain != nearTerrain)
-                        {
-                            Debug.Log("Prohibited Terrain Found");
-                            result = false;
-                        }
-                    }
-                }
+                isolated = false;
             }
-            else   // normal checks
+
+        }
+        if (isolated)
+        {
+            result = false;
+        }
+        else
+        {
+            foreach (Rule _rule in rules)
             {
-                int currentTarget = 0;
-                foreach (Enums.TerrainType nearTerrain in _terrains)
+                if (_rule.kind == Enums.RuleKind.ONLY_ALLOWED) //special case for Only Allowed rule
                 {
-                    foreach (Enums.TerrainType terrain in _rule.affectedTerrains)
+                    result = true;
+                    foreach (Enums.TerrainType nearTerrain in _terrains)
                     {
-                        if (terrain == nearTerrain)
-                            currentTarget++;
+                        bool isAllowed = false;
+                        if (nearTerrain == Enums.TerrainType.NULL)
+                            continue;
+
+                        foreach (Enums.TerrainType allowed in _rule.affectedTerrains)
+                        {
+                            if(allowed == nearTerrain)
+                            {
+                                isAllowed = true;
+                            }
+                        }
+                        if(!isAllowed)
+                        {
+                            result = false;
+                            break;
+                        }
                     }
                 }
-                switch (_rule.kind)
+                else   // normal checks
                 {
-                    case Enums.RuleKind.MIN_ALLOWED:
-                        if (currentTarget >= _rule.targetCount)
+                    int currentTarget = 0;
+                    foreach (Enums.TerrainType nearTerrain in _terrains)
+                    {
+                        foreach (Enums.TerrainType terrain in _rule.affectedTerrains)
                         {
-                            Debug.Log("Good Terrain Found");
-                            goodChecks++;
+                            if (terrain == nearTerrain)
+                                currentTarget++;
                         }
+                    }
+                    switch (_rule.kind)
+                    {
+                        case Enums.RuleKind.MIN_ALLOWED:
+                            if (currentTarget >= _rule.targetCount)
+                            {
+                                if (verbose)
+                                    Debug.Log("Good Terrain Found");
+                                goodChecks++;
+                            }
 
-                        break;
-                    case Enums.RuleKind.MAX_ALLOWED:
-                        if (currentTarget <= _rule.targetCount)
-                        {
-                            goodChecks++;
-                            Debug.Log("Bad Terrain Found");
-                        }
-                        break;
-                    case Enums.RuleKind.ONLY_ALLOWED:
-                        if (currentTarget == _rule.targetCount)
-                        {
-                            goodChecks++;
-                            Debug.Log("Bad Terrain Found");
-                        }
-                        break;
-                    default:
-                        break;
-                }
+                            break;
+                        case Enums.RuleKind.MAX_ALLOWED:
+                            if (currentTarget <= _rule.targetCount)
+                            {
+                                goodChecks++;
+                                if (verbose)
+                                    Debug.Log("Bad Terrain Found");
+                            }
+                            break;
+                        default:
+                            break;
+                    }
 
-                switch (mixLogic)
-                {
-                    case Enums.RuleLogic.OR:
-                        if (goodChecks > 0)
-                            result = true;
-                        else
-                            result = false;
-                        break;
+                    switch (mixLogic)
+                    {
+                        case Enums.RuleLogic.OR:
+                            if (goodChecks > 0)
+                                result = true;
+                            else
+                                result = false;
+                            break;
 
-                    case Enums.RuleLogic.AND:
-                        if (goodChecks == rules.Count)
-                            result = true;
-                        else
-                            result = false;
-                        break;
+                        case Enums.RuleLogic.AND:
+                            if (goodChecks == rules.Count)
+                                result = true;
+                            else
+                                result = false;
+                            break;
+                    }
                 }
             }
         }
 
+
         //final check of the result
-        if(result)
+        if (result)
         {
-            Debug.Log("RULE TRUE");
-            Debug.Log("-----------------------------------------------------------");
+            if (verbose)
+                Debug.Log("RULE TRUE");
             return true;
         }
         else
         {
-            Debug.Log("RULE FALSE");
-            Debug.Log("-----------------------------------------------------------");
+            if (verbose)
+                Debug.Log("RULE FALSE");
             return false;
         }
     }
 }
+
+
+
 
 [System.Serializable]
 public class Rule
 {
     public List<Enums.TerrainType> affectedTerrains;
     [Range(0, 6)]
-    public int targetCount =1;
+    public int targetCount = 1;
     public Enums.RuleKind kind;
 }
 

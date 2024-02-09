@@ -92,7 +92,8 @@ public class Grid : MonoBehaviour {
 		{
 			newTerrain.index = _idx;
             newTerrain.SpawnPrefab();
-			UpdateScore();
+            newTerrain.CheckPlacingRules(true);
+            UpdateScore();
         }
     }
 

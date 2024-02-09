@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rules:
   - affectedTerrains: 0600000004000000
-    targetCount: 0
-    kind: 2
+    targetCount: 1
+    kind: 1
   mixLogic: 0

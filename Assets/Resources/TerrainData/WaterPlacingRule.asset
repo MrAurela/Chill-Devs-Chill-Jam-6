@@ -15,7 +15,7 @@ MonoBehaviour:
   rules:
   - affectedTerrains: 06000000
     targetCount: 2
-    kind: 1
+    kind: 0
   - affectedTerrains: 00000000
     targetCount: 1
     kind: 1

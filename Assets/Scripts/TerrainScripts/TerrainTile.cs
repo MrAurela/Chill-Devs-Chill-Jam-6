@@ -7,6 +7,7 @@ using System.Linq;
 
 public class TerrainTile : MonoBehaviour {
 
+	protected GameObject graphicPrefab;
 	protected TerrainPlacingRules placingRule;
 	protected Color originalColor;
 
@@ -30,25 +31,22 @@ public class TerrainTile : MonoBehaviour {
 		GameObject prefab = Resources.Load<GameObject>(resourcePath);
 		if (prefab != null)
 		{
-			GameObject go = Instantiate(prefab);
-			go.transform.position = gameObject.transform.position;
-			go.transform.parent = gameObject.transform;
-			originalColor = go.GetComponent<MeshRenderer>().material.color;
+			graphicPrefab = Instantiate(prefab);
+            graphicPrefab.transform.position = gameObject.transform.position;
+            graphicPrefab.transform.parent = gameObject.transform;
+			originalColor = graphicPrefab.GetComponent<MeshRenderer>().material.color;
 		}
 	}
 
     public virtual void Delete() 
 	{
-		Transform[] tr = gameObject.GetComponentsInChildren<Transform>();
-
-		if (tr[1]!=null)
-			Destroy(tr[1].gameObject);
-		Destroy(this);
+		DestroyImmediate(graphicPrefab);
+        DestroyImmediate(this);
 	}
 
-    public virtual int CheckPlacingRules()
+    public virtual int CheckPlacingRules(bool verbose = false)
     {
-		if (placingRule.CheckRules(Grid.inst.Neighbours(index).Values.ToList()))
+		if (placingRule.CheckRules(Grid.inst.Neighbours(index).Values.ToList(), verbose))
 		{
             gameObject.GetComponentInChildren<MeshRenderer>().material.color = originalColor;
             return 1;

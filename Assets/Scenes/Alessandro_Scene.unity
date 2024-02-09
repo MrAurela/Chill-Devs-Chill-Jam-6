@@ -772,8 +772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapShape: 0
-  mapWidth: 5
-  mapHeight: 4
+  mapWidth: 12
+  mapHeight: 6
   hexOrientation: 1
   hexRadius: 0.5
   scoreText: {fileID: 2048147361}
