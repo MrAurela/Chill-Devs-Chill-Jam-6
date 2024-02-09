@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using static Enums;
 using UnityEngine.UIElements;
 using Unity.VisualScripting;
+using System.Linq;
 
 public class TerrainTile : MonoBehaviour {
 
 	protected TerrainPlacingRules placingRule;
+	protected Color originalColor;
 
 	public string resourcePath;
 
@@ -31,6 +33,7 @@ public class TerrainTile : MonoBehaviour {
 			GameObject go = Instantiate(prefab);
 			go.transform.position = gameObject.transform.position;
 			go.transform.parent = gameObject.transform;
+			originalColor = go.GetComponent<MeshRenderer>().material.color;
 		}
 	}
 
@@ -43,15 +46,19 @@ public class TerrainTile : MonoBehaviour {
 		Destroy(this);
 	}
 
-    public virtual bool CheckPlacingRules(CubeIndex _index)
+    public virtual int CheckPlacingRules()
     {
-        return true;
+		if (placingRule.CheckRules(Grid.inst.Neighbours(index).Values.ToList()))
+		{
+            gameObject.GetComponentInChildren<MeshRenderer>().material.color = originalColor;
+            return 1;
+        }
+		else
+		{ 
+            gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.Lerp(Color.red, originalColor, 0.7f);
+            return 0;
+        }
     }
-
-    public virtual int CheckRules()
-	{
-		return 0;
-	}
 
     #region Coordinate Conversion Functions
     public static OffsetIndex CubeToEvenFlat(CubeIndex c) {

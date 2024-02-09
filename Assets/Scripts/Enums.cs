@@ -11,12 +11,16 @@ public static class Enums
         WATER
     }
 
-    public enum RulePriority
+    public enum RuleLogic
     {
-        BAD,
-        GOOD,
-        BOTH,
-        MANDATORY_AND_GOOD
+        AND,
+        OR
+    }
+    public enum RuleKind
+    {
+        MAX_ALLOWED,
+        MIN_ALLOWED,
+        ONLY_ALLOWED
     }
 
     public enum CreatureType
