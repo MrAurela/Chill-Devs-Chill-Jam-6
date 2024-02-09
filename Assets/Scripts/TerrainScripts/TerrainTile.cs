@@ -8,6 +8,7 @@ using System.Linq;
 public class TerrainTile : MonoBehaviour {
 
 	protected GameObject graphicPrefab;
+	protected TerrainErrorMarker[] errorMarkers;
 	protected TerrainPlacingRules placingRule;
 	protected Color originalColor;
 
@@ -29,6 +30,8 @@ public class TerrainTile : MonoBehaviour {
 	public virtual void SpawnPrefab()
 	{
 		GameObject prefab = Resources.Load<GameObject>(resourcePath);
+        errorMarkers = gameObject.GetComponentsInChildren<TerrainErrorMarker>();
+
 		if (prefab != null)
 		{
 			graphicPrefab = Instantiate(prefab);
@@ -46,14 +49,23 @@ public class TerrainTile : MonoBehaviour {
 
     public virtual int CheckPlacingRules(bool verbose = false)
     {
+		/*
+		Dictionary<Enums.HexDirection, Enums.TerrainType> nearTerrains = Grid.inst.NeighboursDirections(index);
+
+        foreach (var terrain in nearTerrains)
+		{
+
+		}*/
 		if (placingRule.CheckRules(Grid.inst.Neighbours(index).Values.ToList(), verbose))
 		{
-            gameObject.GetComponentInChildren<MeshRenderer>().material.color = originalColor;
+			if(errorMarkers.Length>0)
+				errorMarkers[0].DisableMarker();
             return 1;
         }
 		else
-		{ 
-            gameObject.GetComponentInChildren<MeshRenderer>().material.color = Color.Lerp(Color.red, originalColor, 0.7f);
+		{
+			if(errorMarkers.Length>0)
+                errorMarkers[0].EnableMarker();
             return 0;
         }
     }

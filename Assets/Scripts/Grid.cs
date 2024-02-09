@@ -92,14 +92,13 @@ public class Grid : MonoBehaviour {
 		{
 			newTerrain.index = _idx;
             newTerrain.SpawnPrefab();
-            newTerrain.CheckPlacingRules(true);
+            //newTerrain.CheckPlacingRules(true);
             UpdateScore();
         }
     }
 
 	public void UpdateScore()
 	{
-		Debug.Log("---------------------------		UPDATING TILES");
         globalScore = 0;
         foreach (GameObject ob in Tiles.Values)
 		{
@@ -195,6 +194,54 @@ public class Grid : MonoBehaviour {
                 dic.Add(o.ToString(), Enums.TerrainType.NULL);
 			}
 		}
+        return dic;
+    }
+
+    public Dictionary<Enums.HexDirection, Enums.TerrainType> NeighboursDirections(CubeIndex index)
+    {
+        Dictionary<Enums.HexDirection, Enums.TerrainType> dic = new Dictionary<Enums.HexDirection, Enums.TerrainType>();
+        CubeIndex o;
+
+        for (int i = 0; i < 6; i++)
+        {
+            o = index + directions[i];
+			Enums.HexDirection dir = Enums.HexDirection.NULL;
+			
+			switch(i)
+			{
+				case 0:
+					dir= Enums.HexDirection.NORTH_EAST;
+					break;
+                case 1:
+                    dir = Enums.HexDirection.SOUTH_EAST;
+                    break;
+                case 2:
+                    dir = Enums.HexDirection.SOUTH;
+                    break;
+                case 3:
+                    dir = Enums.HexDirection.SOUTH_WEST;
+                    break;
+                case 4:
+                    dir = Enums.HexDirection.NORTH_WEST;
+                    break;
+                case 5:
+                    dir = Enums.HexDirection.NORTH;
+                    break;
+            }
+            if (grid.ContainsKey(o.ToString()))
+            {
+                TerrainTile t = grid[o.ToString()].GetComponent<TerrainTile>();
+
+                if (t != null)
+                {
+                    dic.Add(dir, t.tileType);
+                }
+            }
+            else
+            {
+                dic.Add(dir, Enums.TerrainType.NULL);
+            }
+        }
         return dic;
     }
 
@@ -318,14 +365,14 @@ public class Grid : MonoBehaviour {
 	}
 
 	private TerrainTile CreateHexGO(Vector3 position, string name) {
-        GameObject go = new GameObject(name, typeof(DesolateTerrain));
+        GameObject go = GameObject.Instantiate(hexPrefab);
+		TerrainTile desolate = go.AddComponent<DesolateTerrain>();
 
         go.transform.position = position;
         go.transform.parent = this.transform;
 
-        TerrainTile newDesolateTerr = go.GetComponent<TerrainTile>();
-		newDesolateTerr.SpawnPrefab();
-        return newDesolateTerr;
+        desolate.SpawnPrefab();
+        return desolate;
 	}
 	#endregion
 }

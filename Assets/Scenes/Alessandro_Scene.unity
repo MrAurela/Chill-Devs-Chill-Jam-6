@@ -778,7 +778,7 @@ MonoBehaviour:
   hexRadius: 0.5
   scoreText: {fileID: 2048147361}
   globalScore: 0
-  hexPrefab: {fileID: 4477776453795517641, guid: c53c988d5719aad4ca5a4d51b081a8a6, type: 3}
+  hexPrefab: {fileID: 4477776453795517641, guid: 3e307f6cb2ca6ec42994973aca902898, type: 3}
 --- !u!4 &1396193459
 Transform:
   m_ObjectHideFlags: 0

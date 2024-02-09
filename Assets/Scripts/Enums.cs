@@ -34,4 +34,15 @@ public static class Enums
         BIGFISH,
         DEER
     }
+
+    public enum HexDirection
+    {
+        NORTH,
+        NORTH_EAST,
+        SOUTH_EAST,
+        SOUTH,
+        SOUTH_WEST,
+        NORTH_WEST,
+        NULL
+    }
 }
