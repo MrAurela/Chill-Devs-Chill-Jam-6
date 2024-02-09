@@ -44,7 +44,6 @@ public class CameraControl : MonoBehaviour, IScrollHandler
         scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll != 0)
         {
-            Debug.Log("Scrolled: " + scroll);
             camera.m_Lens.OrthographicSize = Mathf.Clamp(camera.m_Lens.OrthographicSize - scroll * zoom_speed * Time.deltaTime, min_zoom, max_zoom);
         }
 

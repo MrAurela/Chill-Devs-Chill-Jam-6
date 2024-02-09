@@ -13,7 +13,7 @@ public class TerrainTile : MonoBehaviour {
 	[HideInInspector]
     public TerrainType tileType;
     public CubeIndex index;
-    public Token token;
+    public CreatureToken token;
 
     public static Vector3 Corner(Vector3 origin, float radius, int corner, HexOrientation orientation){
 		float angle = 60 * corner;

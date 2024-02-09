@@ -388,11 +388,10 @@ public class Grid : MonoBehaviour {
 	}
 
 	private TerrainTile CreateHexGO(Vector3 position, string name) {
-        GameObject go = new GameObject(name, typeof(DesolateTerrain));
-
-        go.transform.position = position;
+		GameObject go = Instantiate(hexPrefab);
+		go.transform.position = position;
         go.transform.parent = this.transform;
-
+		go.AddComponent<DesolateTerrain>();
         TerrainTile newDesolateTerr = go.GetComponent<TerrainTile>();
 		newDesolateTerr.SpawnPrefab();
         return newDesolateTerr;
