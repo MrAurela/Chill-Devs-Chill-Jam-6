@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Linq;
 
 
 public class Card : MonoBehaviour
@@ -25,16 +26,15 @@ public class Card : MonoBehaviour
         else imageField.color = card.color;
     }
 
-    void Excecute(GameObject target)
+    void Excecute(TerrainTile target)
     {
-        //Grid.inst.IsTilePlayable(idx)
+
         CubeIndex idx = target.GetComponentInParent<TerrainTile>().index;
         
         if (Grid.inst.TryPlaceTile(idx, card.tileType))
         {
             Debug.Log("Good Card Placement");
             Grid.inst.SwapTile(idx, card.tileType);
-            //Grid.inst.Neighbours(idx);
 
             // Remove the card from the hand and draw a new card. Destroy the card object at the end.
             FindObjectOfType<Hand>().RemoveCard(this);
@@ -47,6 +47,26 @@ public class Card : MonoBehaviour
             transform.position = startLocation;
             transform.localScale = startSize;
         }
+    }
+
+    /* Card can be played on a spot if it or neaby space is not DESOLATE */
+    public bool IsValidPlay(TerrainTile terrain)
+    {
+        // First turn is always valid:
+        if (FindObjectOfType<CardDeck>().drawnCards == FindObjectOfType<Hand>().max_cards) return true; 
+        
+        // Replacing with the same card is always invalid:
+        if (terrain.tileType == card.tileType) return false;
+
+        // Otherwise, check that the tile has neighbour which is not DESOLATE...
+        List<Enums.TerrainType> neighbours = Grid.inst.Neighbours(terrain.index).Values.ToList();
+        for (int i = 0; i < neighbours.Count; i++)
+        {
+            if (neighbours[i] != Enums.TerrainType.DESOLATE) return true;
+        }
+
+        // ..or the tile itself is not DESOLATE.
+        return terrain.tileType != Enums.TerrainType.DESOLATE;
     }
 
     
@@ -90,15 +110,20 @@ public class Card : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             GameObject objectHit = hit.transform.gameObject;
-            Excecute(objectHit);
+            TerrainTile tile = objectHit.transform.parent.GetComponent<TerrainTile>();
+            if (tile != null)
+            {
+                if (IsValidPlay(tile))
+                {
+                    Excecute(tile);
+                    return;
+                }
+            }
         }
-        else
-        {
-            // Reset the card's position and size
-            transform.position = startLocation;
-            transform.localScale = startSize;
-        }
-        
+       
+        // Otherwise, Reset the card's position and size
+        transform.position = startLocation;
+        transform.localScale = startSize;
     }
     
 

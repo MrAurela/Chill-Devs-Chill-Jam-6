@@ -224,6 +224,7 @@ public class Grid : MonoBehaviour {
 		for (int i = 0; i < 6; i++)
 		{
 			o = index + directions[i];
+
 			if (grid.ContainsKey(o.ToString()))
 			{
 				TerrainTile t = grid[o.ToString()].GetComponent<TerrainTile>();
