@@ -37,7 +37,7 @@ public class TerrainTile : MonoBehaviour {
 		}
 	}
 
-    public virtual void Delete() 
+    public virtual void Delete()
 	{
 		/*Transform[] tr = gameObject.GetComponentsInChildren<Transform>();
 

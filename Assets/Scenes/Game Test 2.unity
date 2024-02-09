@@ -369,6 +369,7 @@ MonoBehaviour:
   cards:
   - {fileID: 11400000, guid: 906f6be79b469274c924aae2dd2720a0, type: 2}
   - {fileID: 11400000, guid: 5571af28c309c7f46a800a843fba15c3, type: 2}
+  - {fileID: 11400000, guid: 255ce20d607f1d241b7827f238c253cf, type: 2}
   drawnCards: 0
 --- !u!4 &493287213
 Transform:
@@ -592,7 +593,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 1.950885
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -917,7 +918,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1538898308}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 4
+    OrthographicSize: 1.950885
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0

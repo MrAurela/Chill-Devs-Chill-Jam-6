@@ -25,6 +25,5 @@ public class CardDeck : MonoBehaviour
         FindObjectOfType<Hand>().AddCard(card);
 
         drawnCards += 1;
-        Debug.Log("Nro cards: " + drawnCards.ToString());
     }
 }

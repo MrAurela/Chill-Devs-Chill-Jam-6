@@ -28,7 +28,11 @@ public class Card : MonoBehaviour
 
     void Excecute(TerrainTile target)
     {
-        IsValidPlay(card, target);
+        if (!IsValidPlay(card, target))
+        {
+            ReturnCard();
+            return;
+        }
 
         CubeIndex idx = target.GetComponentInParent<TerrainTile>().index;
 
@@ -83,8 +87,9 @@ public class Card : MonoBehaviour
             return terrain.tileType != Enums.TerrainType.DESOLATE;
         } else if (card.cardType == Enums.CardType.TOKEN)
         {
+            Debug.Log(terrain.token);
             // There cannot be tokens on the same space:
-            return terrain.token != null;
+            return terrain.token == Enums.CreatureType.NULL;
         } else
         {
             // If card is not a terrain or a creature, it is invalid.

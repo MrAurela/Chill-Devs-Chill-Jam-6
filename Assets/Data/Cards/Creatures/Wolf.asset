@@ -18,5 +18,5 @@ MonoBehaviour:
   color: {r: 0.55345905, g: 0.55345905, b: 0.55345905, a: 1}
   cardType: 1
   tileType: 0
-  tokenType: 04000000
+  tokenType: 09000000
   probability: 1
