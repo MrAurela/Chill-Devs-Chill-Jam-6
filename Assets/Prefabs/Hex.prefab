@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 2147962647876697297}
   - component: {fileID: 8902278561537444399}
   m_Layer: 0
-  m_Name: DesolateTerrain(Clone)
+  m_Name: Example Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2625655440396972878
 Transform:
   m_ObjectHideFlags: 0

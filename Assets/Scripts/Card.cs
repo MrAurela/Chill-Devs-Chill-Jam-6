@@ -104,10 +104,12 @@ public class Card : MonoBehaviour
         PointerEventData pointer = (PointerEventData)data;
 
         //Get any Hex type GameObject that mouse hovers over:
-        RaycastHit hit;
+        RaycastHit[] hits;
         Ray ray = Camera.main.ScreenPointToRay(pointer.position);
 
-        if (Physics.Raycast(ray, out hit))
+        hits = Physics.RaycastAll(ray);
+
+        foreach (RaycastHit hit in hits)
         {
             GameObject objectHit = hit.transform.gameObject;
             TerrainTile tile = objectHit.transform.parent.GetComponent<TerrainTile>();
@@ -118,6 +120,9 @@ public class Card : MonoBehaviour
                     Excecute(tile);
                     return;
                 }
+            } else
+            {
+                Debug.Log("Hit: " + objectHit.name);
             }
         }
        
