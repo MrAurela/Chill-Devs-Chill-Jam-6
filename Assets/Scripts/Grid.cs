@@ -39,6 +39,7 @@ public class Grid : MonoBehaviour {
 	}
 	#endregion
 
+	
 	public bool TryPlaceTile(CubeIndex _index, Enums.TerrainType _type)
 	{
 		Debug.Log("CHECKING PLACING RULES");
