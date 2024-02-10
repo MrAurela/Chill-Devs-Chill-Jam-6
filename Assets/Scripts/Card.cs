@@ -47,6 +47,8 @@ public class Card : MonoBehaviour
                 FindObjectOfType<Hand>().RemoveCard(this);
                 FindObjectOfType<CardDeck>().DrawCard();
                 Destroy(gameObject);
+
+                FindObjectOfType<RaccoonExpressions>().UpdateExpression();
             }
             else
             {
