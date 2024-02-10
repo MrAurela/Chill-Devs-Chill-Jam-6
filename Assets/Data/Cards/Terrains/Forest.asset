@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Forest
   description: Add Forest Terrain
-  image: {fileID: 5389012994097828138, guid: 6747f3211106c7e40964bcacb2163402, type: 3}
+  image: {fileID: -3782146694051010112, guid: 0a1be555087cec244a76f3a900e407b9, type: 3}
   color: {r: 0.21568629, g: 0.21568629, b: 0.21568629, a: 0}
   cardType: 0
   tileType: 4

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Swamp
   description: Add Swamp Terrain
-  image: {fileID: 8477840883926236969, guid: 32970140015824341a9ee4f980b9e3ef, type: 3}
+  image: {fileID: -4942233077130706934, guid: d803d2dde0a0bb545a1b633fed343437, type: 3}
   color: {r: 0.3333333, g: 0.19811316, b: 0.18039216, a: 1}
   cardType: 0
   tileType: 3

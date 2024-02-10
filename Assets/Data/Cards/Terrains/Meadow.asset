@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Meadow
   description: Add Meadow Terrain
-  image: {fileID: -4337048235041613152, guid: 05d7fee9f39844640b26917e47724078, type: 3}
+  image: {fileID: 2468848498044161910, guid: 70a677198d9f684458986cfca58800b7, type: 3}
   color: {r: 0.54380214, g: 1, b: 0, a: 1}
   cardType: 0
   tileType: 2
