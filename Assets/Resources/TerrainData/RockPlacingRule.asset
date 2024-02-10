@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RockPlacingRule
   m_EditorClassIdentifier: 
   rules:
-  - affectedTerrains: 0400000006000000
+  - affectedTerrains: 040000000600000001000000
     targetCount: 0
-    kind: 2
+    kind: 3
   mixLogic: 0

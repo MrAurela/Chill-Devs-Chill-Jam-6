@@ -20,6 +20,7 @@ public static class Enums
     {
         MAX_ALLOWED,
         MIN_ALLOWED,
+        EXACTLY_ALLOWED,
         ONLY_ALLOWED
     }
 

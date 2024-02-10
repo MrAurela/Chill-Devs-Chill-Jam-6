@@ -38,23 +38,15 @@ public class Card : MonoBehaviour
 
         if (card.cardType == Enums.CardType.TILE)
         {
-            if (Grid.inst.TryPlaceTile(idx, card.tileType))
-            {
-                Debug.Log("Good Card Placement");
-                Grid.inst.SwapTile(idx, card.tileType);
+            Grid.inst.SwapTile(idx, card.tileType);
 
-                // Remove the card from the hand and draw a new card. Destroy the card object at the end.
-                FindObjectOfType<Hand>().RemoveCard(this);
-                FindObjectOfType<CardDeck>().DrawCard();
-                Destroy(gameObject);
+            // Remove the card from the hand and draw a new card. Destroy the card object at the end.
+            FindObjectOfType<Hand>().RemoveCard(this);
+            FindObjectOfType<CardDeck>().DrawCard();
+            Destroy(gameObject);
 
-                FindObjectOfType<RaccoonExpressions>().UpdateExpression();
-            }
-            else
-            {
-                Debug.Log("Bad Card Placement");
-                ReturnCard();
-            }
+            FindObjectOfType<RaccoonExpressions>().UpdateExpression();
+
         } else if (card.cardType == Enums.CardType.TOKEN)
         {
             Grid.inst.AddToken(idx, card, card.tokenType[0]); //TODO: Choose randomly?
@@ -78,11 +70,11 @@ public class Card : MonoBehaviour
             // Replacing with the same card is always invalid:
             if (terrain.tileType == card.tileType) return false;
 
-            // Otherwise, check that the tile has neighbour which is not DESOLATE...
+            // Otherwise, check that the tile has neighbour which is not DESOLATE/NULL...
             List<Enums.TerrainType> neighbours = Grid.inst.Neighbours(terrain.index).Values.ToList();
             for (int i = 0; i < neighbours.Count; i++)
             {
-                if (neighbours[i] != Enums.TerrainType.DESOLATE) return true;
+                if (neighbours[i] != Enums.TerrainType.DESOLATE && neighbours[i] != Enums.TerrainType.NULL) return true;
             }
 
             // ..or the tile itself is not DESOLATE.
