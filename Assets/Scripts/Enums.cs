@@ -11,12 +11,16 @@ public static class Enums
         WATER
     }
 
-    public enum RulePriority
+    public enum RuleLogic
     {
-        BAD,
-        GOOD,
-        BOTH,
-        MANDATORY_AND_GOOD
+        AND,
+        OR
+    }
+    public enum RuleKind
+    {
+        MAX_ALLOWED,
+        MIN_ALLOWED,
+        ONLY_ALLOWED
     }
 
     public enum CreatureType
@@ -42,5 +46,16 @@ public static class Enums
         TILE,
         TOKEN,
         EVENT
+    }
+
+    public enum HexDirection
+    {
+        NORTH,
+        NORTH_EAST,
+        SOUTH_EAST,
+        SOUTH,
+        SOUTH_WEST,
+        NORTH_WEST,
+        NULL
     }
 }

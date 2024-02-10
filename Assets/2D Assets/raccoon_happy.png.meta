@@ -239,7 +239,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      raccoon_happy_0: -3757296712900065237
+      raccoon_happy_1: -4019170665879597383
+      raccoon_happy_2: 8036055916683344077
+      raccoon_happy_3: -4028137947063198605
+      raccoon_happy_4: -8447052326595001893
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

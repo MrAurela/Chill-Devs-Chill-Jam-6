@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77039703602bbe94cb25c9b4c10a02ed, type: 3}
   m_Name: RockPlacingRule
   m_EditorClassIdentifier: 
-  maxNegativeRule: 0
-  forbiddenTerrains: 020000000300000006000000
-  minPositiveRule: 1
-  allowedTerrains: 00000000
-  mandatoryTiles: 0
-  mandatoryTerrain: 0
-  priority: 0
+  rules:
+  - affectedTerrains: 0400000006000000
+    targetCount: 0
+    kind: 2
+  mixLogic: 0

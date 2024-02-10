@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77039703602bbe94cb25c9b4c10a02ed, type: 3}
   m_Name: DesolatePlacingRule
   m_EditorClassIdentifier: 
-  maxNegativeRule: 0
-  forbiddenTerrains: 00000000010000000200000003000000040000000500000006000000
-  minPositiveRule: 1
-  allowedTerrains: 
-  mandatoryTiles: 0
-  mandatoryTerrain: 0
-  priority: 0
+  rules:
+  - affectedTerrains: 01000000
+    targetCount: 0
+    logic: 0
+  logic: 0

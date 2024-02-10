@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77039703602bbe94cb25c9b4c10a02ed, type: 3}
   m_Name: WaterPlacingRule
   m_EditorClassIdentifier: 
-  maxNegativeRule: 2
-  forbiddenTerrains: 06000000
-  minPositiveRule: 1
-  allowedTerrains: 00000000
-  mandatoryTiles: 0
-  mandatoryTerrain: 0
-  priority: 0
+  rules:
+  - affectedTerrains: 06000000
+    targetCount: 2
+    kind: 0
+  - affectedTerrains: 00000000
+    targetCount: 1
+    kind: 1
+  mixLogic: 1
