@@ -860,7 +860,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 1.564481
+  orthographic size: 2.076006
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1544,7 +1544,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1538898308}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 1.564481
+    OrthographicSize: 2.076006
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -1933,11 +1933,15 @@ MonoBehaviour:
   cardPrefab: {fileID: 8189813825453595154, guid: d84e6bdcad6e85d478cb42ce3952d2de, type: 3}
   cards:
   - {fileID: 11400000, guid: b3f842a795fcaf24fa90ad34e6ac076e, type: 2}
+  - {fileID: 11400000, guid: b3f842a795fcaf24fa90ad34e6ac076e, type: 2}
   - {fileID: 11400000, guid: 906f6be79b469274c924aae2dd2720a0, type: 2}
+  - {fileID: 11400000, guid: 906f6be79b469274c924aae2dd2720a0, type: 2}
+  - {fileID: 11400000, guid: 73dc80b7d767493449c4a8a4c4c62948, type: 2}
+  - {fileID: 11400000, guid: 73dc80b7d767493449c4a8a4c4c62948, type: 2}
   - {fileID: 11400000, guid: f7c326d715b008243ad1fda13acb0c3a, type: 2}
   - {fileID: 11400000, guid: 3b51e58781105b84c86d42ccfca86386, type: 2}
-  - {fileID: 11400000, guid: 73dc80b7d767493449c4a8a4c4c62948, type: 2}
-  - {fileID: 11400000, guid: 5571af28c309c7f46a800a843fba15c3, type: 2}
+  - {fileID: 11400000, guid: 90233c2a3df7dd3479c0b4ac204d0d6b, type: 2}
+  - {fileID: 11400000, guid: bbaf1729b87deaf428e411a7c6bb133b, type: 2}
   - {fileID: 11400000, guid: 255ce20d607f1d241b7827f238c253cf, type: 2}
   drawnCards: 0
 --- !u!4 &1644051616

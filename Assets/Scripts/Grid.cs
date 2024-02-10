@@ -104,7 +104,8 @@ public class Grid : MonoBehaviour {
 		//ob.token = new CreatureToken(_card.title, _card.sprite, _card.creatureType);
 		CreatureTokenObject creatureTokenObject = ob.GetComponentsInChildren<CreatureTokenObject>()[0]; //There should be only one token per tile
 		creatureTokenObject.DisplayToken(_card);
-		ob.GetComponent<TerrainTile>().token = _card;
+		ob.GetComponent<TerrainTile>().token = new CreatureToken();
+		ob.GetComponent<TerrainTile>().token.Set(_card.title, _card.image, _card.tokenType[0], _card.creatureRules);
 
 		UpdateScore();
     }
@@ -118,7 +119,6 @@ public class Grid : MonoBehaviour {
 			{
 				int result = ob.GetComponent<TerrainTile>().CheckPlacingRules();
                 globalScore += ob.GetComponent<TerrainTile>().CheckPlacingRules();
-				globalScore += ob.GetComponent<TerrainTile>().CheckPlacingRules();
             }
 			else
 			{
@@ -209,6 +209,34 @@ public class Grid : MonoBehaviour {
                 dic.Add(o.ToString(), Enums.TerrainType.NULL);
 			}
 		}
+        return dic;
+    }
+
+    public Dictionary<string, Enums.CreatureType> CreatureNeighbours(CubeIndex index)
+    {
+        Dictionary<string, Enums.CreatureType> dic = new Dictionary<string, Enums.CreatureType>();
+        CubeIndex o;
+
+        for (int i = 0; i < 6; i++)
+        {
+            o = index + directions[i];
+
+            if (grid.ContainsKey(o.ToString()))
+            {
+                TerrainTile t = grid[o.ToString()].GetComponent<TerrainTile>();
+				
+
+                if (t != null)
+                {
+                    if (t.token != null) dic.Add(t.index.ToString(), t.token.creatureType);
+					else dic.Add(t.index.ToString(), Enums.CreatureType.NULL);
+                }
+            }
+            else
+            {
+                dic.Add(o.ToString(), Enums.CreatureType.NULL);
+            }
+        }
         return dic;
     }
 

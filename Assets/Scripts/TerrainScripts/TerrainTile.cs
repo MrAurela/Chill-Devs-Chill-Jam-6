@@ -16,7 +16,7 @@ public class TerrainTile : MonoBehaviour {
 	[HideInInspector]
     public TerrainType tileType;
     public CubeIndex index;
-	public CardData token;
+	public CreatureToken token;
 
 	private GameObject terrainGraphic;
 
@@ -50,16 +50,31 @@ public class TerrainTile : MonoBehaviour {
 
     public virtual int CheckPlacingRules(bool verbose = false)
     {
-		if (placingRule.CheckRules(Grid.inst.Neighbours(index).Values.ToList(), verbose))
+		int score = 0;
+
+		// Get neighbour tiles and their creatures
+		List<TerrainType> neighbourTerrains = Grid.inst.Neighbours(index).Values.ToList();
+        List<Enums.CreatureType> neighbourCreatures = Grid.inst.CreatureNeighbours(index).Values.ToList();
+
+        if (placingRule.CheckRules(neighbourTerrains, verbose))
 		{
 			hex.SetTerrainErrorMarker(false);
-            return 1;
-        }
-		else
+			score += 1;
+        } else
 		{
-            hex.SetTerrainErrorMarker(true);
-            return 0;
-        }
+			hex.SetTerrainErrorMarker(true);
+		}
+
+		if (token != null && token.creatureRules.CheckRules(tileType, neighbourCreatures))
+		{
+            hex.SetCreatureErrorMarker(false);
+            score += 1;
+        } else if (token != null)
+		{
+			hex.SetCreatureErrorMarker(true);
+		}
+
+		return score;
     }
 
     #region Coordinate Conversion Functions

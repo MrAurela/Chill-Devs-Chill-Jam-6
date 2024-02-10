@@ -38,22 +38,24 @@ public class Card : MonoBehaviour
 
         if (card.cardType == Enums.CardType.TILE)
         {
-            Grid.inst.SwapTile(idx, card.tileType);
-
             // Remove the card from the hand and draw a new card. Destroy the card object at the end.
             FindObjectOfType<Hand>().RemoveCard(this);
             FindObjectOfType<CardDeck>().DrawCard();
+
+            Grid.inst.SwapTile(idx, card.tileType);
+
             Destroy(gameObject);
 
             FindObjectOfType<RaccoonExpressions>().UpdateExpression();
 
         } else if (card.cardType == Enums.CardType.TOKEN)
         {
-            Grid.inst.AddToken(idx, card);
-
             // Remove the card from the hand and draw a new card. Destroy the card object at the end.
             FindObjectOfType<Hand>().RemoveCard(this);
-            FindObjectOfType<CardDeck>().DrawCard();
+            FindObjectOfType<CardDeck>().DrawCard(); 
+            
+            Grid.inst.AddToken(idx, card);
+            
             Destroy(gameObject);
         }
     }

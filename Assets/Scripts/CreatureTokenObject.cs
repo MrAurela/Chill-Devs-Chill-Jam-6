@@ -18,7 +18,7 @@ public class CreatureTokenObject : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Checks if the left mouse button was clicked
+        /*if (Input.GetMouseButtonDown(0)) // Checks if the left mouse button was clicked
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -30,7 +30,7 @@ public class CreatureTokenObject : MonoBehaviour
                     Click(null);
                 }
             }
-        }
+        }*/
     }
 
     public void DisplayToken(CardData token)

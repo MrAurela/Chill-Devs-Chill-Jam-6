@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Bear
   m_EditorClassIdentifier: 
   title: Bear
-  description: Add Bear Token
+  description: 'Add Bear Token.\n\nTerrain: Forest\nPrey: Rabbit, Fish'
   image: {fileID: 0}
   color: {r: 0.4528302, g: 0.23907274, b: 0.19793518, a: 1}
   cardType: 1
   tileType: 0
   tokenType: 04000000
   probability: 1
+  creatureRules: {fileID: 11400000, guid: fa5c99042ce5987408816e003614640f, type: 2}
