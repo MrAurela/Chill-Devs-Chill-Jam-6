@@ -16,7 +16,7 @@ public class TerrainTile : MonoBehaviour {
 	[HideInInspector]
     public TerrainType tileType;
     public CubeIndex index;
-    public Enums.CreatureType token;
+	public CardData token;
 
 	private GameObject terrainGraphic;
 

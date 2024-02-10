@@ -98,12 +98,15 @@ public class Grid : MonoBehaviour {
         }
     }
 
-	public void AddToken(CubeIndex _idx, CardData _card, Enums.CreatureType _creatureType) //Replace CardData with Creture type
+	public void AddToken(CubeIndex _idx, CardData _card)
 	{
         GameObject ob = TileObjectAt(_idx);
+		//ob.token = new CreatureToken(_card.title, _card.sprite, _card.creatureType);
 		CreatureTokenObject creatureTokenObject = ob.GetComponentsInChildren<CreatureTokenObject>()[0]; //There should be only one token per tile
 		creatureTokenObject.DisplayToken(_card);
-		ob.GetComponent<TerrainTile>().token = _creatureType;
+		ob.GetComponent<TerrainTile>().token = _card;
+
+		UpdateScore();
     }
 
 	public void UpdateScore()
@@ -115,6 +118,7 @@ public class Grid : MonoBehaviour {
 			{
 				int result = ob.GetComponent<TerrainTile>().CheckPlacingRules();
                 globalScore += ob.GetComponent<TerrainTile>().CheckPlacingRules();
+				globalScore += ob.GetComponent<TerrainTile>().CheckPlacingRules();
             }
 			else
 			{

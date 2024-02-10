@@ -49,7 +49,7 @@ public class Card : MonoBehaviour
 
         } else if (card.cardType == Enums.CardType.TOKEN)
         {
-            Grid.inst.AddToken(idx, card, card.tokenType[0]); //TODO: Choose randomly?
+            Grid.inst.AddToken(idx, card);
 
             // Remove the card from the hand and draw a new card. Destroy the card object at the end.
             FindObjectOfType<Hand>().RemoveCard(this);
@@ -83,7 +83,7 @@ public class Card : MonoBehaviour
         {
             Debug.Log(terrain.token);
             // There cannot be tokens on the same space:
-            return terrain.token == Enums.CreatureType.NULL;
+            return terrain.token == null;
         } else
         {
             // If card is not a terrain or a creature, it is invalid.

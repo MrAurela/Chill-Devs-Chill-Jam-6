@@ -9,9 +9,7 @@ public class CreatureTokenObject : MonoBehaviour
     [SerializeField] TextMeshProUGUI textField;
     [SerializeField] SpriteRenderer imageField;
 
-    private CardData token; //TODO: replace with something reasonable
-
-    private bool on; //TODO: remove, for testing only
+    private CardData token; // Not necessarily needed
 
     void Start()
     {
@@ -38,7 +36,8 @@ public class CreatureTokenObject : MonoBehaviour
     public void DisplayToken(CardData token)
     {
         this.token = token;
-        textField.text = token.name;
+
+        textField.text = token.title;
         if (token.image != null) imageField.sprite = token.image;
         else imageField.color = token.color;
 
@@ -55,15 +54,6 @@ public class CreatureTokenObject : MonoBehaviour
     public void Click(BaseEventData data)
     {
         Debug.Log("Testing click on token: " + token.name);
-
-        /*on = !on;
-        if (on)
-        {
-            DisplayToken(token);
-        } else
-        {
-            HideToken();
-        }*/
         
     }
 
