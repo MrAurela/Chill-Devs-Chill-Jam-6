@@ -444,7 +444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 131d9dfb8d4344d4a83fe2544874f406, type: 3}
+  m_Sprite: {fileID: -3449118770906549456, guid: e31ebdb05e9398443b2c3d37426c9918, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -474,9 +474,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1518acc048f004293c64a90333fb79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  happy: {fileID: 6550726414912852524, guid: 4d360ef2ffd6b68429bd4f787a198ff0, type: 3}
-  neutral: {fileID: 6550726414912852524, guid: 4d360ef2ffd6b68429bd4f787a198ff0, type: 3}
-  scared: {fileID: 21300000, guid: 20f2586d432ae0d4db87522c4d25b704, type: 3}
+  happy: {fileID: -3757296712900065237, guid: 20f2586d432ae0d4db87522c4d25b704, type: 3}
+  neutral: {fileID: -3449118770906549456, guid: e31ebdb05e9398443b2c3d37426c9918, type: 3}
+  scared: {fileID: -3449118770906549456, guid: e31ebdb05e9398443b2c3d37426c9918, type: 3}
   raccoonImage: {fileID: 519329068}
 --- !u!1 &648065914
 GameObject:
