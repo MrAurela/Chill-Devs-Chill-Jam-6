@@ -7,7 +7,7 @@ using System.Linq;
 
 public class TerrainTile : MonoBehaviour {
 
-	protected TerrainErrorMarker[] errorMarkers;
+	protected Hex hex;
 	protected TerrainPlacingRules placingRule;
 	protected Color originalColor;
 
@@ -31,7 +31,7 @@ public class TerrainTile : MonoBehaviour {
 	public virtual void SpawnPrefab()
 	{
 		GameObject prefab = Resources.Load<GameObject>(resourcePath);
-        errorMarkers = gameObject.GetComponentsInChildren<TerrainErrorMarker>();
+        hex = gameObject.GetComponentsInChildren<Hex>()[0];
 
 		if (prefab != null)
 		{
@@ -50,23 +50,14 @@ public class TerrainTile : MonoBehaviour {
 
     public virtual int CheckPlacingRules(bool verbose = false)
     {
-		/*
-		Dictionary<Enums.HexDirection, Enums.TerrainType> nearTerrains = Grid.inst.NeighboursDirections(index);
-
-        foreach (var terrain in nearTerrains)
-		{
-
-		}*/
 		if (placingRule.CheckRules(Grid.inst.Neighbours(index).Values.ToList(), verbose))
 		{
-			if(errorMarkers.Length>0)
-				errorMarkers[0].DisableMarker();
+			hex.SetTerrainErrorMarker(false);
             return 1;
         }
 		else
 		{
-			if(errorMarkers.Length>0)
-                errorMarkers[0].EnableMarker();
+            hex.SetTerrainErrorMarker(true);
             return 0;
         }
     }

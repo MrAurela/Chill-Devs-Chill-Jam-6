@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TerrainErrorMarker : MonoBehaviour
+public class ErrorMarker : MonoBehaviour
 {
-    public Enums.HexDirection direction;
-
     private SpriteRenderer renderer;
 
     private void Start()
