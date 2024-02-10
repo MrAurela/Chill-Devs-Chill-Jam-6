@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using static Enums;
 using UnityEngine.UIElements;
 using Unity.VisualScripting;
+using System.Linq;
 
 public class TerrainTile : MonoBehaviour {
 
+	protected Hex hex;
 	protected TerrainPlacingRules placingRule;
+	protected Color originalColor;
 
 	public string resourcePath;
 
@@ -28,6 +31,8 @@ public class TerrainTile : MonoBehaviour {
 	public virtual void SpawnPrefab()
 	{
 		GameObject prefab = Resources.Load<GameObject>(resourcePath);
+        hex = gameObject.GetComponentsInChildren<Hex>()[0];
+
 		if (prefab != null)
 		{
 			GameObject go = Instantiate(prefab);
@@ -39,26 +44,23 @@ public class TerrainTile : MonoBehaviour {
 
     public virtual void Delete()
 	{
-		/*Transform[] tr = gameObject.GetComponentsInChildren<Transform>();
-
-		if (tr[1]!=null)
-			Destroy(tr[1].gameObject);
-		Destroy(this);*/
-
-		//Remove the terrain grapchic:
-		Destroy(terrainGraphic);
-		Destroy(this);
+		DestroyImmediate(terrainGraphic);
+        DestroyImmediate(this);
 	}
 
-    public virtual bool CheckPlacingRules(CubeIndex _index)
+    public virtual int CheckPlacingRules(bool verbose = false)
     {
-        return true;
+		if (placingRule.CheckRules(Grid.inst.Neighbours(index).Values.ToList(), verbose))
+		{
+			hex.SetTerrainErrorMarker(false);
+            return 1;
+        }
+		else
+		{
+            hex.SetTerrainErrorMarker(true);
+            return 0;
+        }
     }
-
-    public virtual int CheckRules()
-	{
-		return 0;
-	}
 
     #region Coordinate Conversion Functions
     public static OffsetIndex CubeToEvenFlat(CubeIndex c) {

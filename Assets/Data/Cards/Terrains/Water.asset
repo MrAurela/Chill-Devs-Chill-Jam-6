@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Water
   description: Add Water Terrain
-  image: {fileID: 0}
+  image: {fileID: -8812913224856473369, guid: 0594152c469b40b4883468e886aafffe, type: 3}
   color: {r: 0, g: 0.44748855, b: 1, a: 1}
   cardType: 0
   tileType: 6

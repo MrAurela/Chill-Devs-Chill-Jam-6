@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class Hex : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] ErrorMarker terrainErrorMarker;
+    [SerializeField] ErrorMarker creatureErrorMarker;
+
+    public void SetTerrainErrorMarker(bool on)
     {
-        
+        if (on) terrainErrorMarker.EnableMarker();
+        else terrainErrorMarker.DisableMarker();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetCreatureErrorMarker(bool on)
     {
-        
+        if (on) creatureErrorMarker.EnableMarker();
+        else creatureErrorMarker.DisableMarker();
     }
 }

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77039703602bbe94cb25c9b4c10a02ed, type: 3}
   m_Name: ForestPlacingRule
   m_EditorClassIdentifier: 
-  maxNegativeRule: 2
-  forbiddenTerrains: 
-  minPositiveRule: 1
-  allowedTerrains: 0200000003000000
-  mandatoryTiles: 2
-  mandatoryTerrain: 4
-  priority: 1
+  rules:
+  - affectedTerrains: 0200000006000000
+    targetCount: 1
+    kind: 1
+  - affectedTerrains: 04000000
+    targetCount: 2
+    kind: 1
+  mixLogic: 0
