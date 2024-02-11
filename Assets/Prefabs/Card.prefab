@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 4768237656608455507, guid: cc09ce98fc02f96459f25f406bac51c2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -493,6 +493,7 @@ MonoBehaviour:
   titleField: {fileID: 2570179250789954464}
   descriptionField: {fileID: 8494828118035161373}
   imageField: {fileID: 9114541712277882666}
+  cardTypeIconField: {fileID: 0}
   card: {fileID: 0}
 --- !u!114 &860924594657158453
 MonoBehaviour:
