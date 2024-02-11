@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,8 +35,9 @@ public class SpawnPoint : MonoBehaviour, ISpawnable
         {
             if (spawnedObj >= maxObjects)
                 break;
-            float noise = Mathf.PerlinNoise(t.position.x* biomeNoiseScale, t.position.y*biomeNoiseScale);
-            int collectionIndex = (int)Mathf.Repeat(Mathf.RoundToInt(noise*50), collections.Count);
+            int seed = DateTime.Now.Minute * 100;
+            float noise = Mathf.PerlinNoise(seed+t.position.x* biomeNoiseScale,seed+ t.position.y*biomeNoiseScale);
+            int collectionIndex = (int)Mathf.Repeat(Mathf.RoundToInt(noise*10), collections.Count);
             List<GameObject> objects = collections[collectionIndex].objectList;
 
             int r = UnityEngine.Random.Range(0, objects.Count);

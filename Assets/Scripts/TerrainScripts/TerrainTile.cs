@@ -4,6 +4,8 @@ using static Enums;
 using UnityEngine.UIElements;
 using Unity.VisualScripting;
 using System.Linq;
+using static UnityEngine.Rendering.DebugUI;
+using System;
 
 public class TerrainTile : MonoBehaviour {
 
@@ -171,8 +173,18 @@ public struct CubeIndex {
 	public CubeIndex(int x, int z) {
 		this.x = x; this.z = z; this.y = -x-z;
 	}
+    public CubeIndex(string s)
+    {
+		s.Remove(0, 4);
+		s.TrimEnd(']');
+        string[] values = s.Split(',');
+		Debug.Log(values[0] + " " + values[1] + " " + values[2]);
+		this.x = int.Parse(values[0], System.Globalization.NumberStyles.Integer);
+        this.y = int.Parse(values[1], System.Globalization.NumberStyles.Integer);
+        this.z = int.Parse(values[2], System.Globalization.NumberStyles.Integer);
+    }
 
-	public static CubeIndex operator+ (CubeIndex one, CubeIndex two){
+    public static CubeIndex operator+ (CubeIndex one, CubeIndex two){
 		return new CubeIndex(one.x + two.x, one.y + two.y, one.z + two.z);
 	}
 

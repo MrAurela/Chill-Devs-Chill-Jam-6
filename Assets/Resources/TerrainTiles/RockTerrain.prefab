@@ -544,7 +544,7 @@ MonoBehaviour:
   maxObjects: 2
   objectsScale: 0.06
   objectsMinScale: 0.75
-  biomeNoiseScale: 3
+  biomeNoiseScale: 1
 --- !u!1 &6378751907201340673
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +641,7 @@ MonoBehaviour:
   maxObjects: 3
   objectsScale: 0.13
   objectsMinScale: 0.6
-  biomeNoiseScale: 3
+  biomeNoiseScale: 1
 --- !u!1 &7210576023697180342
 GameObject:
   m_ObjectHideFlags: 0

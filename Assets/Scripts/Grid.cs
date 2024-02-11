@@ -6,6 +6,9 @@ using UnityEngine.UIElements;
 using Unity.VisualScripting;
 using System.Reflection;
 using TMPro;
+using static Enums;
+using static UnityEngine.Rendering.VolumeComponent;
+using UnityEngine.Rendering.Universal;
 
 public class Grid : MonoBehaviour {
 	public static Grid inst;
@@ -151,6 +154,21 @@ public class Grid : MonoBehaviour {
 		default:
 			break;
 		}
+		/*
+		foreach(KeyValuePair<string, GameObject> entry in Tiles)
+        {
+			CubeIndex id = new CubeIndex(entry.Key);
+            List<TerrainType> neighbourTerrains = Grid.inst.Neighbours(id).Values.ToList();
+			if(neighbourTerrains.Contains(Enums.TerrainType.NULL))
+			{
+				TerrainTile tile;
+                entry.Value.TryGetComponent(out tile);
+				tile.Delete();
+				tile = entry.Value.AddComponent<BorderTerrain>();
+				tile.index = id;
+				tile.SpawnPrefab();
+			}
+        }*/
 	}
 
 	public void ClearGrid() {
@@ -339,28 +357,22 @@ public class Grid : MonoBehaviour {
 
 	private void GenRectShape() {
 		Debug.Log ("Generating rectangular shaped grid...");
-
         TerrainTile tile;
 		Vector3 pos = Vector3.zero;
 
-		switch(hexOrientation){
+        switch (hexOrientation){
 		case HexOrientation.Flat:
 			for(int q = 0; q < mapWidth; q++){
 				int qOff = q>>1;
                 for (int r = -qOff; r < mapHeight - qOff; r++){
-					pos.x = hexRadius * 3.0f/2.0f * q;
+                    pos.x = hexRadius * 3.0f/2.0f * q;
 					pos.z = hexRadius * Mathf.Sqrt(3.0f) * (r + q/2.0f);
 					
 					tile = CreateHexGO( pos,("Hex[" + q + "," + r + "," + (-q-r).ToString() + "]"));
                     tile.index = new CubeIndex(q, r, -q - r);
                     grid.Add(tile.index.ToString(), tile.gameObject);
 				}
-			}/*
-            foreach (KeyValuePair<string, TerrainTile> entry in grid)
-            {
-                Debug.Log("Key: " + entry.Key);
-                Debug.Log("Terrain: " + entry.Value);
-			}*/
+			}
             break;
 			
 		case HexOrientation.Pointy:
@@ -371,7 +383,6 @@ public class Grid : MonoBehaviour {
 					pos.z = hexRadius * 3.0f/2.0f * r;
 					
 					tile = CreateHexGO( pos,("Hex[" + q + "," + r + "," + (-q-r).ToString() + "]"));
-					//tile.SpawnPrefab();
 					grid.Add(tile.index.ToString(), tile.gameObject);
 				}
 			}
@@ -409,6 +420,7 @@ public class Grid : MonoBehaviour {
 
 	private TerrainTile CreateHexGO(Vector3 position, string name) {
 		GameObject go = Instantiate(hexPrefab);
+		go.name = name;
 		go.transform.position = position;
         go.transform.parent = this.transform;
 		go.AddComponent<DesolateTerrain>();
@@ -416,7 +428,7 @@ public class Grid : MonoBehaviour {
 		newDesolateTerr.SpawnPrefab();
         return newDesolateTerr;
 	}
-	#endregion
+    #endregion
 }
 
 [System.Serializable]
