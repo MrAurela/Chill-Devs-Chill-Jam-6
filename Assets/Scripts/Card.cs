@@ -10,7 +10,7 @@ using System.Linq;
 public class Card : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI titleField, descriptionField;
-    [SerializeField] Image imageField;
+    [SerializeField] Image imageField, cardTypeIconField;
 
     private Vector3 startLocation, startSize;
 
@@ -24,6 +24,7 @@ public class Card : MonoBehaviour
         descriptionField.text = card.description;
         if (card.image != null) imageField.sprite = card.image;
         else imageField.color = card.color;
+        if (card.cardTypeIcon != null) cardTypeIconField.sprite = card.cardTypeIcon;
     }
 
     void Excecute(TerrainTile target)

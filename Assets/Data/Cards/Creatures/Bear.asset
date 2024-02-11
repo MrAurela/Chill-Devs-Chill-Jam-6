@@ -24,5 +24,6 @@ MonoBehaviour:
   cardType: 1
   tileType: 0
   tokenType: 04000000
+  tokenImage: {fileID: 21300000, guid: 6eab2235995a1cd4699c3a1cc9077355, type: 3}
   probability: 1
   creatureRules: {fileID: 11400000, guid: fa5c99042ce5987408816e003614640f, type: 2}
