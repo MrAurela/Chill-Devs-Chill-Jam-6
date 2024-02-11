@@ -29,6 +29,9 @@ public class Hand : MonoBehaviour
                 cards[i] = card;
                 card.transform.SetParent(positions[i].transform);
                 card.transform.localPosition = Vector3.zero;
+                //Set euler angles of card to 0,0,0:
+                card.transform.localEulerAngles = Vector3.zero;
+                Debug.Log(card.transform.localEulerAngles);
                 return;
             }
         }
