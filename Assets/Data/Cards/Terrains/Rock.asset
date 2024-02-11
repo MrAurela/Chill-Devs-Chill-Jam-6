@@ -19,9 +19,11 @@ MonoBehaviour:
 
 '
   image: {fileID: -4375630674391253767, guid: 9d0806a52d5bc1d49acd928438ef004b, type: 3}
+  cardTypeIcon: {fileID: 4768237656608455507, guid: cc09ce98fc02f96459f25f406bac51c2, type: 3}
   color: {r: 0.52664053, g: 0.52738327, b: 0.5283019, a: 1}
   cardType: 0
   tileType: 5
   tokenType: 0100000004000000
+  tokenImage: {fileID: 0}
   probability: 0.25
   creatureRules: {fileID: 0}

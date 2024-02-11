@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gamejam_cards_human_0: 5502747413095562457
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

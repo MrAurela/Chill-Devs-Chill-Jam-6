@@ -143,7 +143,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      raccoon_0: 1064988734043881895
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

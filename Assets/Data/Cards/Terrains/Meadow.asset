@@ -17,9 +17,11 @@ MonoBehaviour:
 
     Max 2 Meadow tiles'
   image: {fileID: 2468848498044161910, guid: 70a677198d9f684458986cfca58800b7, type: 3}
+  cardTypeIcon: {fileID: 4768237656608455507, guid: cc09ce98fc02f96459f25f406bac51c2, type: 3}
   color: {r: 0.54380214, g: 1, b: 0, a: 1}
   cardType: 0
   tileType: 2
   tokenType: 020000000700000008000000
+  tokenImage: {fileID: 0}
   probability: 0.25
   creatureRules: {fileID: 0}

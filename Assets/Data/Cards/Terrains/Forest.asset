@@ -20,9 +20,11 @@ MonoBehaviour:
     Water or
     Meadow tile'
   image: {fileID: -3782146694051010112, guid: 0a1be555087cec244a76f3a900e407b9, type: 3}
+  cardTypeIcon: {fileID: 4768237656608455507, guid: cc09ce98fc02f96459f25f406bac51c2, type: 3}
   color: {r: 0.21568629, g: 0.21568629, b: 0.21568629, a: 0}
   cardType: 0
   tileType: 4
   tokenType: 0000000002000000030000000800000004000000
+  tokenImage: {fileID: 0}
   probability: 0.25
   creatureRules: {fileID: 0}
