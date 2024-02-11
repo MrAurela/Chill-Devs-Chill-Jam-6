@@ -42,7 +42,7 @@ public class Card : MonoBehaviour
             FindObjectOfType<Hand>().RemoveCard(this);
             FindObjectOfType<CardDeck>().DrawCard();
 
-            Grid.inst.SwapTile(idx, card.tileType);
+            Grid.inst.SwapTile(idx, card.tileType, card);
 
             Destroy(gameObject);
 

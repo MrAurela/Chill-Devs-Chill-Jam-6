@@ -53,7 +53,7 @@ public class Grid : MonoBehaviour {
 		return true;
 	}
 
-	public void SwapTile(CubeIndex _idx, Enums.TerrainType _type)
+	public void SwapTile(CubeIndex _idx, Enums.TerrainType _type, CardData _card)
 	{
         if (TileObjectAt(_idx) == null)
 		{
@@ -94,6 +94,7 @@ public class Grid : MonoBehaviour {
 			newTerrain.index = _idx;
             newTerrain.SpawnPrefab();
             //newTerrain.CheckPlacingRules(true);
+            newTerrain.terrainCardData = _card;
             UpdateScore();
         }
     }
@@ -106,6 +107,7 @@ public class Grid : MonoBehaviour {
 		creatureTokenObject.DisplayToken(_card);
 		ob.GetComponent<TerrainTile>().token = new CreatureToken();
 		ob.GetComponent<TerrainTile>().token.Set(_card.title, _card.image, _card.tokenType[0], _card.creatureRules);
+		ob.GetComponent<TerrainTile>().creatureCardData = _card;
 
 		UpdateScore();
     }
