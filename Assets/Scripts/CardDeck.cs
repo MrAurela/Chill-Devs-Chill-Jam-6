@@ -53,4 +53,10 @@ public class CardDeck : MonoBehaviour
     {
         return deck.Count;
     }
+
+    public void DestroyCard()
+    {
+        int index = Random.Range(0, deck.Count);
+        deck.RemoveAt(index);
+    }
 }
