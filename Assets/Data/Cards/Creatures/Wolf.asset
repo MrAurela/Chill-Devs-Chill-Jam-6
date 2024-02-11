@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Wolf
   m_EditorClassIdentifier: 
   title: Wolf
-  description: 'Terrains: Forest / Rock
+  description: 'Must be at: Forest / Rock
 
-    Neighbour Ceature Rules:
+    Must be next to:
 
-    Wild Boar
-    / Rabbit / Deer / Raccoon token and
+    - Wild Boar
+    / Rabbit / Deer / Raccoon token
 
-    Wolf token'
+    - Wolf token'
   image: {fileID: 3453418508958011709, guid: ba8e6dc603d7f2b42a539d5e5ae3a8fc, type: 3}
   cardTypeIcon: {fileID: 7333774719577200583, guid: 556ceb50f8fbe3f4bbb19732d11a0135, type: 3}
   color: {r: 0.55345905, g: 0.55345905, b: 0.55345905, a: 1}

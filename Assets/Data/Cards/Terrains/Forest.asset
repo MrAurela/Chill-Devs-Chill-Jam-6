@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Forest
   m_EditorClassIdentifier: 
   title: Forest
-  description: 'Neighbour terrain rules:
+  description: 'Must be next to:
 
-    Min 2 Forest tiles and
+    - Min 2 Forest tiles
 
-    Water or
-    Meadow tile'
+    - Water / Meadow
+    tile'
   image: {fileID: -3782146694051010112, guid: 0a1be555087cec244a76f3a900e407b9, type: 3}
   cardTypeIcon: {fileID: 4768237656608455507, guid: cc09ce98fc02f96459f25f406bac51c2, type: 3}
   color: {r: 0.21568629, g: 0.21568629, b: 0.21568629, a: 0}

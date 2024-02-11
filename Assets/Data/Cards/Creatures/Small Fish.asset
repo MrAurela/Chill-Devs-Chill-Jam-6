@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Small Fish
   m_EditorClassIdentifier: 
   title: Fish
-  description: 'Terrains: Water
+  description: 'Must be at:
 
-    Neighbour Ceature Rules:
+    - Water
 
-    Fish token'
+    Must be next to:
+
+    - Fish token'
   image: {fileID: -485685133684518844, guid: 587da4a4150e87145b356c000149f4ef, type: 3}
   cardTypeIcon: {fileID: 7333774719577200583, guid: 556ceb50f8fbe3f4bbb19732d11a0135, type: 3}
   color: {r: 0.2950041, g: 0.6041905, b: 0.8301887, a: 1}

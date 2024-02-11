@@ -3494,7 +3494,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bbaf1729b87deaf428e411a7c6bb133b, type: 2}
   - {fileID: 11400000, guid: 255ce20d607f1d241b7827f238c253cf, type: 2}
   counts: 0300000003000000030000000200000002000000010000000100000001000000
-  cardCountMultiplier: 5
+  cardCountMultiplier: 6
   drawnCards: 0
   startCount: 0
 --- !u!4 &1644051616
