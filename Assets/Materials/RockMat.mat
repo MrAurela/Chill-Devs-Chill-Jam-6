@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: RockMat
-  m_Shader: {fileID: -6465566751694194690, guid: 2247a26f15b695241857bfb0124cfba9, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 85f1c630563930843ba421c009956a3d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []

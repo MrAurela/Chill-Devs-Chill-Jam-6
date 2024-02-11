@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class ErrorMarker : MonoBehaviour
 {
-    private SpriteRenderer renderer;
+    private MeshRenderer meshRenderer;
 
     private void Start()
     {
-        renderer = GetComponent<SpriteRenderer>();
-        if (renderer != null)
-            renderer.enabled = false;
+        meshRenderer = GetComponent<MeshRenderer>();
+        if (meshRenderer != null)
+            meshRenderer.enabled = false;
     }
     public void EnableMarker()
     {
-        if (renderer != null)
-            renderer.enabled = true;
+        if (meshRenderer != null)
+            meshRenderer.enabled = true;
     }
     public void DisableMarker()
     {
-        if (renderer != null)
-            renderer.enabled = false;
+        if (meshRenderer != null)
+            meshRenderer.enabled = false;
     }
 }

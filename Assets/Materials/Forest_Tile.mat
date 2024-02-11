@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Forest_Tile
-  m_Shader: {fileID: -6465566751694194690, guid: 2247a26f15b695241857bfb0124cfba9, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 85f1c630563930843ba421c009956a3d, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -98,8 +98,9 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.08780908, g: 0.9622642, b: 0, a: 1}
+    - _Edge_Color: {r: 0.8001379, g: 0.990566, b: 0.40650588, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Tint: {r: 0.2358019, g: 0.5943396, b: 0.21026166, a: 0}
+    - _Tint: {r: 0.1351614, g: 0.5188679, b: 0.110137075, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &2825450539293704144
