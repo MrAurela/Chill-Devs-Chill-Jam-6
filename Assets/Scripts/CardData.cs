@@ -21,4 +21,6 @@ public class CardData : ScriptableObject
     // Probability to add a token to the tile
     public float probability;
 
+    public CreatureRules creatureRules;
+
 }
