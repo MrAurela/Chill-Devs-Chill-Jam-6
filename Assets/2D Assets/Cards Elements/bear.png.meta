@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 97965b0f3e3f2ae48bd1183ddefa1e4c
+guid: 6eab2235995a1cd4699c3a1cc9077355
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3173569055928726973
-    second: gamejam_cards_bear_0
+      213: 7935234321397735378
+    second: bear_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gamejam_cards_bear_0
+      name: bear_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 2
-        width: 1207
-        height: 735
+        x: 31
+        y: 79
+        width: 667
+        height: 553
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 34a423702c735f3d0800000000000000
-      internalID: -3173569055928726973
+      spriteID: 2df5668929d9f1e60800000000000000
+      internalID: 7935234321397735378
       vertices: []
       indices: 
       edges: []
@@ -143,8 +143,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      gamejam_cards_bear_0: -3173569055928726973
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
