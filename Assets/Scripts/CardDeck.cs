@@ -14,6 +14,7 @@ public class CardDeck : MonoBehaviour
     public int drawnCards; //TODO: make private set
 
     private List<CardData> deck;
+    public int startCount;
 
     void Awake()
     {
@@ -27,6 +28,8 @@ public class CardDeck : MonoBehaviour
                 deck.Add(cards[i]);
             }
         }
+
+        startCount = deck.Count;
     }
 
     public void DrawCard()
