@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: Swamp
   m_EditorClassIdentifier: 
   title: Swamp
-  description: Add Swamp Terrain
+  description: 'Neighbour terrain rules:
+
+    Water and Forest tile'
   image: {fileID: -4942233077130706934, guid: d803d2dde0a0bb545a1b633fed343437, type: 3}
   color: {r: 0.3333333, g: 0.19811316, b: 0.18039216, a: 1}
   cardType: 0
   tileType: 3
   tokenType: 09000000
   probability: 0.25
+  creatureRules: {fileID: 0}

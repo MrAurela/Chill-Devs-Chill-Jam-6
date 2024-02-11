@@ -13,7 +13,14 @@ MonoBehaviour:
   m_Name: Wolf
   m_EditorClassIdentifier: 
   title: Wolf
-  description: Add Wolf Token
+  description: 'Terrains: Forest / Rock
+
+    Neighbour Ceature Rules:
+
+    Wild Boar
+    / Rabbit / Deer / Raccoon token and
+
+    Wolf token'
   image: {fileID: 0}
   color: {r: 0.55345905, g: 0.55345905, b: 0.55345905, a: 1}
   cardType: 1

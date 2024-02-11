@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Rabbit
   m_EditorClassIdentifier: 
   title: Rabbit
-  description: 'Add Rabbit Token.\n\nTerrain: Meadow, Forest'
+  description: 'Terrain: Meadow / Forest'
   image: {fileID: 0}
   color: {r: 0.81761, g: 0.6106564, b: 0.5270756, a: 1}
   cardType: 1

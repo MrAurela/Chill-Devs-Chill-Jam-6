@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: Meadow
   m_EditorClassIdentifier: 
   title: Meadow
-  description: Add Meadow Terrain
+  description: 'Neighbour terrain rules:
+
+    Max 2 Meadow tiles'
   image: {fileID: 2468848498044161910, guid: 70a677198d9f684458986cfca58800b7, type: 3}
   color: {r: 0.54380214, g: 1, b: 0, a: 1}
   cardType: 0
   tileType: 2
   tokenType: 020000000700000008000000
   probability: 0.25
+  creatureRules: {fileID: 0}

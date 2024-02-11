@@ -6,7 +6,7 @@ using UnityEngine;
 public class CardData : ScriptableObject
 {
     public string title;
-    public string description;
+    [TextArea(4, 10)] public string description;
     public Sprite image;
     public Color color;
 

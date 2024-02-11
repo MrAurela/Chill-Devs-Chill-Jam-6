@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Small Fish
   m_EditorClassIdentifier: 
   title: Fish
-  description: 'Add Fish Token.\n\nTerrain: Water'
+  description: 'Terrains: Water
+
+    Neighbour Ceature Rules:
+
+    Fish token'
   image: {fileID: 0}
   color: {r: 0.2950041, g: 0.6041905, b: 0.8301887, a: 1}
   cardType: 1
