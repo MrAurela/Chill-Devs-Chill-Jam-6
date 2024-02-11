@@ -56,10 +56,11 @@ public class TerrainTile : MonoBehaviour {
 
 		if (CheckPlacingRulesTerrain(verbose) == 1)
 		{
-            score++;
+            score+= 2;
             hex.SetTerrainErrorMarker(false);
         } else
 		{
+			score -= 1;
             hex.SetTerrainErrorMarker(true);
         }
 
@@ -67,11 +68,12 @@ public class TerrainTile : MonoBehaviour {
 		{
             if (CheckPlacingRulesCreature() == 1)
             {
-                score++;
+				score += 2;
                 hex.SetCreatureErrorMarker(false);
             }
             else
             {
+				score -= 1;
                 hex.SetCreatureErrorMarker(true);
             }
         }
