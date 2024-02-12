@@ -19,8 +19,8 @@ MonoBehaviour:
 
     Must be next to:
 
-    - Wild
-    Boar / Rabbit / Deer / Raccoon token
+    - Rabbit
+    / Deer token
 
     - Wolf token'
   image: {fileID: 3453418508958011709, guid: ba8e6dc603d7f2b42a539d5e5ae3a8fc, type: 3}

@@ -20,7 +20,7 @@ MonoBehaviour:
     Must be next to:
 
     -
-    no other ANIMAL'
+    no other animals'
   image: {fileID: -2122156967946185683, guid: 287b8477703a9a84c97d9f1372e94e37, type: 3}
   cardTypeIcon: {fileID: 7333774719577200583, guid: 556ceb50f8fbe3f4bbb19732d11a0135, type: 3}
   color: {r: 0.2950041, g: 0.6041905, b: 0.8301887, a: 1}
@@ -29,4 +29,4 @@ MonoBehaviour:
   tokenType: 08000000
   tokenImage: {fileID: -1866223138761978688, guid: 5a6d9878cfee17c4b8c3e87996f9b133, type: 3}
   probability: 1
-  creatureRules: {fileID: 11400000, guid: 0335e71c1ea01ed4ca0e5cb5474c611b, type: 2}
+  creatureRules: {fileID: 11400000, guid: a13ca7a612d71b34fa4fdf1567e801e9, type: 2}

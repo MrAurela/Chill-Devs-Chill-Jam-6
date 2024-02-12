@@ -29,4 +29,4 @@ MonoBehaviour:
   tokenType: 01000000
   tokenImage: {fileID: -5064401156898091283, guid: 2852385e78aa8c74e888741f2c624228, type: 3}
   probability: 1
-  creatureRules: {fileID: 11400000, guid: fa5c99042ce5987408816e003614640f, type: 2}
+  creatureRules: {fileID: 11400000, guid: c741616f697d2754594de24a6040ab51, type: 2}

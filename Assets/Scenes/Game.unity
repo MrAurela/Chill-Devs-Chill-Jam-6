@@ -1721,7 +1721,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 2.336603
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2809,7 +2809,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1538898308}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 4
+    OrthographicSize: 2.336603
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -3496,16 +3496,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 204ee9c93d0d59c40b2ccb51cd46d56c, type: 2}
   - {fileID: 11400000, guid: 0ca554c6814ee624b8d225afac445d52, type: 2}
   - {fileID: 11400000, guid: 90233c2a3df7dd3479c0b4ac204d0d6b, type: 2}
-  - {fileID: 11400000, guid: 70f95e98c0f41d34dbbb171b74a081d5, type: 2}
   - {fileID: 11400000, guid: bbaf1729b87deaf428e411a7c6bb133b, type: 2}
   - {fileID: 11400000, guid: a11f99d2d87f5f34894d85c5c34a99f5, type: 2}
   - {fileID: 11400000, guid: 255ce20d607f1d241b7827f238c253cf, type: 2}
   - {fileID: 11400000, guid: 5571af28c309c7f46a800a843fba15c3, type: 2}
-  - {fileID: 11400000, guid: bb759544d4e464a449e0c900cbe52770, type: 2}
-  - {fileID: 11400000, guid: 6582a4c29a40efe4a95663a3c851bec6, type: 2}
-  - {fileID: 11400000, guid: 47ad36d2e67c26f43a122e884bd2171a, type: 2}
   - {fileID: 11400000, guid: 7f056c94d21641b49870b4e63779a895, type: 2}
-  counts: 100000001000000010000000100000001000000004000000030000000300000004000000030000000400000004000000030000000300000002000000020000000200000002000000
+  counts: 1000000010000000100000001000000010000000030000000100000001000000030000000300000004000000010000000400000001000000
   cardCountMultiplier: 1
   drawnCards: 0
   startCount: 0

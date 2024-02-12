@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7399f48db096344fa5ee1a8b348d497, type: 3}
   m_Name: Raccoon
   m_EditorClassIdentifier: 
-  habitant: 040000000500000002000000010000000600000003000000
-  preys: 0b000000
+  habitant: 04000000
+  preys: 
   friends: 
-  enemies: 0a000000
+  enemies: 
   spreadingProbability: 0
   maxSpreadingPerTurn: 0
