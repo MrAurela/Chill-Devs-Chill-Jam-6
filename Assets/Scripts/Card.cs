@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 
 public class Card : MonoBehaviour
@@ -13,8 +14,17 @@ public class Card : MonoBehaviour
     [SerializeField] Image imageField, cardTypeIconField;
 
     private Vector3 startLocation, startSize;
+    private AudioSource pickingSource;
+    private AudioSource placingSource;
+    private AudioSource returnSource;
 
     public CardData card;
+    public AudioClip pickingSound;
+    public AudioClip placingSound;
+    public AudioClip returnSound;
+
+    [Range(0, 1f)]
+    public float volume = 0.5f;
 
     public void Set(CardData card)
     {
@@ -34,7 +44,7 @@ public class Card : MonoBehaviour
             ReturnCard();
             return;
         }
-
+        PlaySource(placingSource);
         CubeIndex idx = target.GetComponentInParent<TerrainTile>().index;
 
         if (card.cardType == Enums.CardType.TILE)
@@ -91,8 +101,6 @@ public class Card : MonoBehaviour
             //TODO: Events
             return false;
         }
-
-        
     }
 
     
@@ -104,8 +112,9 @@ public class Card : MonoBehaviour
 
         // Make card smaller
         transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+        PlaySource(pickingSource);
     }
-    
+
     public void DragHandler(BaseEventData data)
     {
         PointerEventData pointer = (PointerEventData)data;
@@ -142,6 +151,7 @@ public class Card : MonoBehaviour
             if (tile != null)
             {
                 Excecute(tile);
+                return;
             }
             
         }
@@ -154,10 +164,34 @@ public class Card : MonoBehaviour
     {
         transform.position = startLocation;
         transform.localScale = startSize;
+        PlaySource(returnSource);
     }
-    
 
-    
+    private void Start()
+    {
+        pickingSource = gameObject.AddComponent<AudioSource>();
+        pickingSource.volume = volume;
+        pickingSource.clip = pickingSound;
+        pickingSource.playOnAwake = false;
 
+        placingSource = gameObject.AddComponent<AudioSource>();
+        placingSource.volume = volume;
+        placingSource.clip = placingSound;
+        placingSource.playOnAwake = false;
+
+        returnSource = gameObject.AddComponent<AudioSource>();
+        returnSource.volume = volume;
+        returnSource.clip = returnSound;
+        returnSource.playOnAwake = false;
+    }
+
+    private void PlaySource(AudioSource _source)
+    {
+        if (_source == null) return;
+
+        if (_source.isPlaying) return;
+
+        _source.PlayOneShot(_source.clip);
+    }
 
 }

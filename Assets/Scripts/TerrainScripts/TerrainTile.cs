@@ -21,8 +21,8 @@ public class TerrainTile : MonoBehaviour {
 	public CreatureToken token;
 
 	public CardData terrainCardData, creatureCardData;
-
 	private GameObject terrainGraphic;
+	private CreatureTokenObject creatureToken;
 
     public static Vector3 Corner(Vector3 origin, float radius, int corner, HexOrientation orientation){
 		float angle = 60 * corner;
@@ -35,6 +35,7 @@ public class TerrainTile : MonoBehaviour {
 	public virtual void SpawnPrefab()
 	{
 		GameObject prefab = Resources.Load<GameObject>(resourcePath);
+        creatureToken = GetComponentInChildren<CreatureTokenObject>();
         hex = gameObject.GetComponentsInChildren<Hex>()[0];
 
 		if (prefab != null)
@@ -66,17 +67,20 @@ public class TerrainTile : MonoBehaviour {
             hex.SetTerrainErrorMarker(true);
         }
 
-		if (token != null)
+		if (token != null && creatureToken != null)
 		{
             if (CheckPlacingRulesCreature() == 1)
             {
 				score += 2;
-                hex.SetCreatureErrorMarker(false);
+                //hex.SetCreatureErrorMarker(false);
+				creatureToken.ErrorToggle(false);
             }
             else
             {
 				score -= 1;
-                hex.SetCreatureErrorMarker(true);
+                //hex.SetCreatureErrorMarker(true);
+                creatureToken.ErrorToggle(true);
+
             }
         }
 

@@ -25,7 +25,7 @@ public class CreatureRules : ScriptableObject
         {
             if (possibleTerrain == terrain) return true;
         }
-        Debug.Log("Habitant rule failed. Current terrain: " + terrain + " Required terrains: " + habitant.ToString());
+        //Debug.Log("Habitant rule failed. Current terrain: " + terrain + " Required terrains: " + habitant.ToString());
         return false;
     }
 

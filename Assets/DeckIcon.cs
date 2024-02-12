@@ -33,6 +33,6 @@ public class DeckIcon : MonoBehaviour
         if ((float) cardsLeft / (float) cardsFull < 0.6f) deckIconCards[3].SetActive(false);
         if ((float) cardsLeft / (float) cardsFull < 0.8f) deckIconCards[4].SetActive(false);
 
-        Debug.Log(((float) cardsLeft / (float) cardsFull).ToString());
+        //Debug.Log(((float) cardsLeft / (float) cardsFull).ToString());
     }
 }

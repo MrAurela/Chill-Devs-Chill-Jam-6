@@ -9,6 +9,7 @@ public class Hand : MonoBehaviour
     public List<Card> cards;
     public int max_cards = 3;
 
+
     void Start()
     {
         // Initialize empty hand of cards
@@ -31,7 +32,7 @@ public class Hand : MonoBehaviour
                 card.transform.localPosition = Vector3.zero;
                 //Set euler angles of card to 0,0,0:
                 card.transform.localEulerAngles = Vector3.zero;
-                Debug.Log(card.transform.localEulerAngles);
+                //Debug.Log(card.transform.localEulerAngles);
                 return;
             }
         }
