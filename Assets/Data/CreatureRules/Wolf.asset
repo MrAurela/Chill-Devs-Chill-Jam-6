@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   habitant: 0400000005000000
   preys: 0300000007000000
-  friends: 09000000
-  enemies: 
+  friends: 
+  enemies: 0900000004000000
   spreadingProbability: 0
   maxSpreadingPerTurn: 0
