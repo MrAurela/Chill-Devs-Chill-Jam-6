@@ -13,14 +13,11 @@ MonoBehaviour:
   m_Name: Hawk
   m_EditorClassIdentifier: 
   title: Hawk
-  description: 'Must be at:
+  description: 'Terrain: Rock
 
-    - Rock
+    Next to:
 
-    Must be next to:
-
-    - Rabbit / Bird
-    token'
+    - Rabbit'
   image: {fileID: -8407922215828111363, guid: 2dcb34727ca63544fbca8bb1c394ec69, type: 3}
   cardTypeIcon: {fileID: 7333774719577200583, guid: 556ceb50f8fbe3f4bbb19732d11a0135, type: 3}
   color: {r: 0.4528302, g: 0.23907274, b: 0.19793518, a: 1}

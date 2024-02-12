@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bear
   m_EditorClassIdentifier: 
   habitant: 04000000
-  preys: 0500000003000000
+  preys: 0500000007000000
   friends: 
   enemies: 0900000004000000
   spreadingProbability: 0

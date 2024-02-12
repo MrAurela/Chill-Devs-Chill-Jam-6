@@ -15,6 +15,6 @@ MonoBehaviour:
   habitant: 03000000
   preys: 05000000
   friends: 
-  enemies: 
+  enemies: 04000000
   spreadingProbability: 0
   maxSpreadingPerTurn: 0
