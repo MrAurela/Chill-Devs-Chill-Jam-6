@@ -70,6 +70,7 @@ public class Grid : MonoBehaviour {
 
 		GameObject ob = TileObjectAt(_idx);
 		TerrainTile newTerrain = null;
+		CardData oldCreature = ob.GetComponent<TerrainTile>().creatureCardData;
         TileObjectAt(_idx).GetComponent<TerrainTile>().Delete();
 		
 		switch(_type)
@@ -100,8 +101,8 @@ public class Grid : MonoBehaviour {
 		{
 			newTerrain.index = _idx;
             newTerrain.SpawnPrefab();
-            //newTerrain.CheckPlacingRules(true);
             newTerrain.terrainCardData = _card;
+			newTerrain.creatureCardData = oldCreature;
             UpdateScore();
         }
     }

@@ -152,7 +152,6 @@ public class Card : MonoBehaviour
             {
                 Excecute(tile);
             }
-            
         }
 
         // Otherwise, Reset the card's position and size
