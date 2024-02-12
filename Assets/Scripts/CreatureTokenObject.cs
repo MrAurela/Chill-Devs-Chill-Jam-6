@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using System;
 
 public class CreatureTokenObject : MonoBehaviour
 {
@@ -10,7 +12,6 @@ public class CreatureTokenObject : MonoBehaviour
     [SerializeField] SpriteRenderer imageField;
 
     private CardData token; // Not necessarily needed
-
     void Awake()
     {
         HideToken();
@@ -62,9 +63,13 @@ public class CreatureTokenObject : MonoBehaviour
     public void Click(BaseEventData data)
     {
         Debug.Log("Testing click on token: " + token.name);
-        
     }
 
+    public void ErrorToggle(bool toggle)
+    {
+        if (imageField == null) return;
 
+        imageField.material.SetFloat("_EnableError", toggle ? 1 : 0);
+    }
 
 }
