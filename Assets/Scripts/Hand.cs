@@ -49,4 +49,14 @@ public class Hand : MonoBehaviour
             }
         }
     }
+
+    public int GetCardCount()
+    {
+        int count = 0;
+        for (int i = 0; i < cards.Count; i++)
+        {
+            if (cards[i] != null) count++;
+        }
+        return count;
+    }
 }
