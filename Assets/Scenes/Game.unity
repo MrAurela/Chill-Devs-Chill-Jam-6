@@ -1733,7 +1733,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 48.11899
+  field of view: 60
   orthographic: 0
   orthographic size: 4
   m_Depth: -1
@@ -2822,7 +2822,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 1538898308}
   m_Lens:
-    FieldOfView: 48.11899
+    FieldOfView: 60
     OrthographicSize: 4
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -3515,7 +3515,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 255ce20d607f1d241b7827f238c253cf, type: 2}
   - {fileID: 11400000, guid: 5571af28c309c7f46a800a843fba15c3, type: 2}
   - {fileID: 11400000, guid: 7f056c94d21641b49870b4e63779a895, type: 2}
-  counts: 1000000010000000100000001000000010000000030000000100000001000000030000000300000004000000010000000400000001000000
+  counts: 1000000010000000100000001000000010000000030000000100000001000000040000000300000004000000010000000400000001000000
   cardCountMultiplier: 1
   drawnCards: 0
   startCount: 0
