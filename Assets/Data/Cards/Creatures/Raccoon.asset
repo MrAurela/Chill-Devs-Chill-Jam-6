@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceceae9b1f929634393ea3454ed10993, type: 3}
-  m_Name: Bear
+  m_Name: Raccoon
   m_EditorClassIdentifier: 
-  title: Bear
-  description: 'Must be at:
+  title: Raccoon
+  description: 'Can be at:
 
-    - Forest
+    - Anywhere
 
     Must be next to:
 
-    - Rabbit / Fish
-    token
+    - Trash token
 
-    - no Bears'
-  image: {fileID: -3173569055928726973, guid: 97965b0f3e3f2ae48bd1183ddefa1e4c, type: 3}
+    -
+    no Raccoon tokens'
+  image: {fileID: -3377483278220942156, guid: 95fbaec48f83c8c45986792f6f059bd6, type: 3}
   cardTypeIcon: {fileID: 7333774719577200583, guid: 556ceb50f8fbe3f4bbb19732d11a0135, type: 3}
-  color: {r: 0.4528302, g: 0.23907274, b: 0.19793518, a: 1}
+  color: {r: 0.55345905, g: 0.55345905, b: 0.55345905, a: 1}
   cardType: 1
   tileType: 0
-  tokenType: 04000000
-  tokenImage: {fileID: 21300000, guid: 6eab2235995a1cd4699c3a1cc9077355, type: 3}
+  tokenType: 0a000000
+  tokenImage: {fileID: 1064988734043881895, guid: e7fcb097976fa684c8a5e1f8648adc94, type: 3}
   probability: 1
-  creatureRules: {fileID: 11400000, guid: fa5c99042ce5987408816e003614640f, type: 2}
+  creatureRules: {fileID: 11400000, guid: c38f0a35e7c075242812a07e5c74e115, type: 2}

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceceae9b1f929634393ea3454ed10993, type: 3}
-  m_Name: Bear
+  m_Name: Bird
   m_EditorClassIdentifier: 
-  title: Bear
+  title: Bird
   description: 'Must be at:
 
     - Forest
@@ -20,15 +20,13 @@ MonoBehaviour:
     Must be next to:
 
     - Rabbit / Fish
-    token
-
-    - no Bears'
-  image: {fileID: -3173569055928726973, guid: 97965b0f3e3f2ae48bd1183ddefa1e4c, type: 3}
+    token'
+  image: {fileID: -8067432148182498029, guid: 16df503a7b8a10b4ba28b4b1f0035f43, type: 3}
   cardTypeIcon: {fileID: 7333774719577200583, guid: 556ceb50f8fbe3f4bbb19732d11a0135, type: 3}
   color: {r: 0.4528302, g: 0.23907274, b: 0.19793518, a: 1}
   cardType: 1
   tileType: 0
-  tokenType: 04000000
-  tokenImage: {fileID: 21300000, guid: 6eab2235995a1cd4699c3a1cc9077355, type: 3}
+  tokenType: 01000000
+  tokenImage: {fileID: -5064401156898091283, guid: 2852385e78aa8c74e888741f2c624228, type: 3}
   probability: 1
   creatureRules: {fileID: 11400000, guid: fa5c99042ce5987408816e003614640f, type: 2}

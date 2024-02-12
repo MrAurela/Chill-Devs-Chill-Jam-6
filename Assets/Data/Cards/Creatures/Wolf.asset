@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Wolf
   m_EditorClassIdentifier: 
   title: Wolf
-  description: 'Must be at: Forest / Rock
+  description: 'Must be at:
+
+    - Forest / Rock
 
     Must be next to:
 
-    - Wild Boar
-    / Rabbit / Deer / Raccoon token
+    - Wild
+    Boar / Rabbit / Deer / Raccoon token
 
     - Wolf token'
   image: {fileID: 3453418508958011709, guid: ba8e6dc603d7f2b42a539d5e5ae3a8fc, type: 3}

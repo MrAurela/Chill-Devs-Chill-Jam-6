@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7399f48db096344fa5ee1a8b348d497, type: 3}
-  m_Name: Bear
+  m_Name: Human
   m_EditorClassIdentifier: 
-  habitant: 04000000
-  preys: 060000000500000003000000
+  habitant: 0400000005000000020000000600000003000000
+  preys: 0100000002000000030000000400000005000000060000000700000008000000090000000e000000
   friends: 
-  enemies: 0900000004000000
+  enemies: 
   spreadingProbability: 0
   maxSpreadingPerTurn: 0
