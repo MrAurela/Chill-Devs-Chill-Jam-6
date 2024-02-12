@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 64199348}
   - component: {fileID: 64199350}
   - component: {fileID: 64199349}
+  - component: {fileID: 64199351}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -243,6 +244,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &64199351
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64199347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c41ac9245b87c4192012080077d830, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Damping: 0
 --- !u!1 &64712404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,7 +1734,7 @@ Camera:
   near clip plane: 0.1
   far clip plane: 5000
   field of view: 40
-  orthographic: 1
+  orthographic: 0
   orthographic size: 4
   m_Depth: -1
   m_CullingMask:
@@ -1745,8 +1759,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 980979837}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6427876, y: 0, z: 0, w: 0.7660445}
-  m_LocalPosition: {x: 4.1, y: 10, z: 0}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 4.1, y: 6, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2835,7 +2849,7 @@ Transform:
   m_GameObject: {fileID: 1405588994}
   serializedVersion: 2
   m_LocalRotation: {x: 0.6427876, y: 0, z: 0, w: 0.7660445}
-  m_LocalPosition: {x: 4.1, y: 10, z: 0}
+  m_LocalPosition: {x: 4.1, y: 6, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3051,13 +3065,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538898307}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 4.1, y: 0, z: 0}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 4.1, y: -4, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!114 &1538898310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3104,9 +3118,9 @@ MonoBehaviour:
   min_x: -10
   max_y: 10
   min_y: -10
-  max_zoom: 4
-  min_zoom: 1
-  zoom_speed: 100
+  max_zoom: 60
+  min_zoom: 25
+  zoom_speed: 1300
 --- !u!1 &1553645988
 GameObject:
   m_ObjectHideFlags: 0

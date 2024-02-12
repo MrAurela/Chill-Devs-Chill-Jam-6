@@ -8,7 +8,7 @@ public class CameraControl : MonoBehaviour, IScrollHandler
 {
     [SerializeField] float speed = 1.0f;
     [SerializeField] float max_x = 10.0f, min_x = -10.0f, max_y = 10.0f, min_y = -10.0f;
-    [SerializeField] float max_zoom = 10.0f, min_zoom = 1.0f;
+    [SerializeField] float max_zoom = 60f, min_zoom = 30f;
     [SerializeField] float zoom_speed = 1.0f;
 
     private Cinemachine.CinemachineVirtualCamera camera;
@@ -44,7 +44,7 @@ public class CameraControl : MonoBehaviour, IScrollHandler
         scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll != 0)
         {
-            camera.m_Lens.OrthographicSize = Mathf.Clamp(camera.m_Lens.OrthographicSize - scroll * zoom_speed * Time.deltaTime, min_zoom, max_zoom);
+            camera.m_Lens.FieldOfView = Mathf.Clamp(camera.m_Lens.FieldOfView - scroll * zoom_speed * Time.deltaTime, min_zoom, max_zoom);
         }
 
         //Clamp inside certain max and min values:
@@ -58,7 +58,7 @@ public class CameraControl : MonoBehaviour, IScrollHandler
         //Zoom in and out with the mouse wheel:
         PointerEventData pointer = (PointerEventData)data;
         float scroll = pointer.scrollDelta.y;
-        camera.m_Lens.OrthographicSize = Mathf.Clamp(camera.m_Lens.OrthographicSize - scroll, min_zoom, max_zoom);
+        camera.m_Lens.FieldOfView = Mathf.Clamp(camera.m_Lens.FieldOfView - scroll, min_zoom, max_zoom);
         Debug.Log("Scrolled: " + scroll);
     }
 
