@@ -9,6 +9,7 @@ using TMPro;
 using static Enums;
 using static UnityEngine.Rendering.VolumeComponent;
 using UnityEngine.Rendering.Universal;
+using Unity.Mathematics;
 
 public class Grid : MonoBehaviour {
 	public static Grid inst;
@@ -17,9 +18,12 @@ public class Grid : MonoBehaviour {
 	public MapShape mapShape = MapShape.Rectangle;
 	public int mapWidth;
 	public int mapHeight;
-
-	//Hex Settings
-	public HexOrientation hexOrientation = HexOrientation.Flat;
+	[Space]
+	public float randomHeight =0.05f;
+	public float randomRotation = 2f;
+    //Hex Settings
+	[Space]
+    public HexOrientation hexOrientation = HexOrientation.Flat;
 	public float hexRadius = 0.5f;
 
 	[Space]
@@ -425,7 +429,8 @@ public class Grid : MonoBehaviour {
 	}
 
 	private TerrainTile CreateHexGO(Vector3 position, string name) {
-		GameObject go = Instantiate(hexPrefab);
+
+        GameObject go = Instantiate(hexPrefab);
 		go.name = name;
 		go.transform.position = position;
         go.transform.parent = this.transform;

@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     [SerializeField] float timeToDestroyCard = 10f;
 
     private CardDeck deck;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,8 @@ public class Timer : MonoBehaviour
         slider.value = timeToDestroyCard;
 
         deck = FindObjectOfType<CardDeck>();
+        gameObject.TryGetComponent<AudioSource>(out audioSource);
+
     }
 
     // Update is called once per frame
@@ -37,6 +40,8 @@ public class Timer : MonoBehaviour
             {
                 FindObjectOfType<CardDeck>().DestroyCard();
                 slider.value = timeToDestroyCard;
+
+                if (audioSource != null) audioSource.PlayOneShot(audioSource.clip);
             }
         } else
         {
