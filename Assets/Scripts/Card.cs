@@ -67,8 +67,6 @@ public class Card : MonoBehaviour
         //If card is a terrain:
         if (card.cardType == Enums.CardType.TILE)
         {
-            // First turn is always valid:
-            if (FindObjectOfType<CardDeck>().drawnCards == FindObjectOfType<Hand>().max_cards) return true;
 
             // Replacing with the same card is always invalid:
             if (terrain.tileType == card.tileType) return false;
