@@ -11,9 +11,10 @@ public class TerrainTile : MonoBehaviour {
 
 	protected Hex hex;
 	protected TerrainPlacingRules placingRule;
-	protected Color originalColor;
+    protected GameObject terrainGraphic;
+    protected CreatureTokenObject creatureToken;
 
-	public string resourcePath;
+    public string resourcePath;
 
 	[HideInInspector]
     public TerrainType tileType;
@@ -21,9 +22,7 @@ public class TerrainTile : MonoBehaviour {
 	public CreatureToken token;
 
 	public CardData terrainCardData, creatureCardData;
-	private GameObject terrainGraphic;
-	private CreatureTokenObject creatureToken;
-
+	
     public static Vector3 Corner(Vector3 origin, float radius, int corner, HexOrientation orientation){
 		float angle = 60 * corner;
 		if(orientation == HexOrientation.Pointy)
@@ -72,15 +71,12 @@ public class TerrainTile : MonoBehaviour {
             if (CheckPlacingRulesCreature() == 1)
             {
 				score += 2;
-                //hex.SetCreatureErrorMarker(false);
 				creatureToken.ErrorToggle(false);
             }
             else
             {
 				score -= 1;
-                //hex.SetCreatureErrorMarker(true);
                 creatureToken.ErrorToggle(true);
-
             }
         }
 

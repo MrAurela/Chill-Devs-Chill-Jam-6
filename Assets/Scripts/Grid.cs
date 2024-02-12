@@ -71,6 +71,7 @@ public class Grid : MonoBehaviour {
 		GameObject ob = TileObjectAt(_idx);
 		TerrainTile newTerrain = null;
 		CardData oldCreature = ob.GetComponent<TerrainTile>().creatureCardData;
+
         TileObjectAt(_idx).GetComponent<TerrainTile>().Delete();
 		
 		switch(_type)
@@ -102,8 +103,8 @@ public class Grid : MonoBehaviour {
 			newTerrain.index = _idx;
             newTerrain.SpawnPrefab();
             newTerrain.terrainCardData = _card;
-			newTerrain.creatureCardData = oldCreature;
-            UpdateScore();
+			if (oldCreature != null) AddToken(_idx, oldCreature);
+			else UpdateScore();
         }
     }
 
@@ -125,15 +126,7 @@ public class Grid : MonoBehaviour {
         globalScore = 0;
         foreach (GameObject ob in Tiles.Values)
 		{
-			if(ob.GetComponent<TerrainTile>().tileType != Enums.TerrainType.DESOLATE)
-			{
-				int result = ob.GetComponent<TerrainTile>().CheckPlacingRules();
-                globalScore += ob.GetComponent<TerrainTile>().CheckPlacingRules();
-            }
-			else
-			{
-				//ob.GetComponent<TerrainTile>().CheckPlacingRules();
-            }
+            globalScore += ob.GetComponent<TerrainTile>().CheckPlacingRules();
 		}
         scoreText.text = globalScore.ToString();
     }

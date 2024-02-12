@@ -92,7 +92,7 @@ public class Card : MonoBehaviour
             return terrain.tileType != Enums.TerrainType.DESOLATE;
         } else if (card.cardType == Enums.CardType.TOKEN)
         {
-            Debug.Log(terrain.token);
+            //Debug.Log(terrain.token);
             // There cannot be tokens on the same space:
             return terrain.token == null;
         } else
