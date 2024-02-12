@@ -499,6 +499,10 @@ MonoBehaviour:
   imageField: {fileID: 9114541712277882666}
   cardTypeIconField: {fileID: 7734433132735389748}
   card: {fileID: 0}
+  pickingSound: {fileID: 8300000, guid: 98a7161d509cc2145a166f995e4d927a, type: 3}
+  placingSound: {fileID: 8300000, guid: 9763190e97e61114aaf11ba84839cd55, type: 3}
+  returnSound: {fileID: 8300000, guid: 333ec018ecc4208448a46c1eaba08792, type: 3}
+  volume: 0.801
 --- !u!114 &860924594657158453
 MonoBehaviour:
   m_ObjectHideFlags: 0

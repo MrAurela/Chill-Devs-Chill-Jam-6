@@ -16,7 +16,6 @@ public class CreatureToken
         this.creatureType = creatureType;
         this.creatureRules = creatureRules;
     }
-
 }
 
 
