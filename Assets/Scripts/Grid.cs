@@ -26,6 +26,10 @@ public class Grid : MonoBehaviour {
 	public TextMeshProUGUI scoreText;
 	public int globalScore = 0;
 
+	[Space]
+	public CardData startTerrain;
+	public CardData startToken;
+
 	//Internal variables
 	private Dictionary<string, GameObject> grid = new Dictionary<string, GameObject>();
 
@@ -56,7 +60,7 @@ public class Grid : MonoBehaviour {
 		return true;
 	}
 
-	public void SwapTile(CubeIndex _idx, Enums.TerrainType _type)
+	public void SwapTile(CubeIndex _idx, Enums.TerrainType _type, CardData _card)
 	{
         if (TileObjectAt(_idx) == null)
 		{
@@ -97,6 +101,7 @@ public class Grid : MonoBehaviour {
 			newTerrain.index = _idx;
             newTerrain.SpawnPrefab();
             //newTerrain.CheckPlacingRules(true);
+            newTerrain.terrainCardData = _card;
             UpdateScore();
         }
     }
@@ -109,6 +114,7 @@ public class Grid : MonoBehaviour {
 		creatureTokenObject.DisplayToken(_card);
 		ob.GetComponent<TerrainTile>().token = new CreatureToken();
 		ob.GetComponent<TerrainTile>().token.Set(_card.title, _card.image, _card.tokenType[0], _card.creatureRules);
+		ob.GetComponent<TerrainTile>().creatureCardData = _card;
 
 		UpdateScore();
     }
@@ -322,6 +328,12 @@ public class Grid : MonoBehaviour {
 
 		GenerateGrid();
 		UpdateScore();
+    }
+
+	private void Start()
+	{
+        SwapTile(new CubeIndex(5, 1, -6), startTerrain.tileType, startTerrain);
+        AddToken(new CubeIndex(5, 1, -6), startToken);
     }
 
     private void GenHexShape() {

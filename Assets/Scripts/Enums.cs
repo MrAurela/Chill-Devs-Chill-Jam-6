@@ -39,7 +39,8 @@ public static class Enums
         RACCOON,
         TRASH,
         HUMAN,
-        FIRE
+        FIRE,
+        HERON
     }
 
     public enum CardType

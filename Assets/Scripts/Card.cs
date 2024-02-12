@@ -10,7 +10,7 @@ using System.Linq;
 public class Card : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI titleField, descriptionField;
-    [SerializeField] Image imageField;
+    [SerializeField] Image imageField, cardTypeIconField;
 
     private Vector3 startLocation, startSize;
 
@@ -24,6 +24,7 @@ public class Card : MonoBehaviour
         descriptionField.text = card.description;
         if (card.image != null) imageField.sprite = card.image;
         else imageField.color = card.color;
+        if (card.cardTypeIcon != null) cardTypeIconField.sprite = card.cardTypeIcon;
     }
 
     void Excecute(TerrainTile target)
@@ -42,7 +43,7 @@ public class Card : MonoBehaviour
             FindObjectOfType<Hand>().RemoveCard(this);
             FindObjectOfType<CardDeck>().DrawCard();
 
-            Grid.inst.SwapTile(idx, card.tileType);
+            Grid.inst.SwapTile(idx, card.tileType, card);
 
             Destroy(gameObject);
 
@@ -66,8 +67,6 @@ public class Card : MonoBehaviour
         //If card is a terrain:
         if (card.cardType == Enums.CardType.TILE)
         {
-            // First turn is always valid:
-            if (FindObjectOfType<CardDeck>().drawnCards == FindObjectOfType<Hand>().max_cards) return true;
 
             // Replacing with the same card is always invalid:
             if (terrain.tileType == card.tileType) return false;

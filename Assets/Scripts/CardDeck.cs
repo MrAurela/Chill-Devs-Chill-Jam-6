@@ -8,22 +8,55 @@ public class CardDeck : MonoBehaviour
 
     //public Card[] cards;
     public CardData[] cards;
+    public int[] counts;
+    public int cardCountMultiplier;
+
     public int drawnCards; //TODO: make private set
+
+    private List<CardData> deck;
+    public int startCount;
 
     void Awake()
     {
         drawnCards = 0;
+
+        deck = new List<CardData>();
+        for (int i = 0; i < cards.Length; i++)
+        {
+            for (int j = 0; j < counts[i] * cardCountMultiplier; j++)
+            {
+                deck.Add(cards[i]);
+            }
+        }
+
+        startCount = deck.Count;
     }
 
     public void DrawCard()
     {
+        if (deck.Count == 0) return;
+
         // Draw a card from the deck
         GameObject gameObject = Instantiate(cardPrefab, transform);
         Card card = gameObject.GetComponent<Card>();
-        CardData cardData = cards[Random.Range(0, cards.Length)];
+        
+        int index = Random.Range(0, deck.Count);
+        CardData cardData = deck[index];
+        deck.RemoveAt(index);
         card.Set(cardData);
         FindObjectOfType<Hand>().AddCard(card);
 
         drawnCards += 1;
+    }
+
+    public int GetCardsLeft()
+    {
+        return deck.Count;
+    }
+
+    public void DestroyCard()
+    {
+        int index = Random.Range(0, deck.Count);
+        deck.RemoveAt(index);
     }
 }

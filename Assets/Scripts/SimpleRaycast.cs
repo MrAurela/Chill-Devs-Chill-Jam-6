@@ -28,7 +28,7 @@ public class SimpleRaycast : MonoBehaviour
                 if (hit.transform.GetComponentInParent<TerrainTile>() != null)
                 {
                     CubeIndex idx = hit.transform.GetComponentInParent<TerrainTile>().index;
-                    grid.SwapTile(idx, Enums.TerrainType.MEADOW);
+                    //grid.SwapTile(idx, Enums.TerrainType.MEADOW); //Does not work anymore, third parameter CardData is required
                 }
             }
             return;
@@ -41,7 +41,7 @@ public class SimpleRaycast : MonoBehaviour
                 if (hit.transform.GetComponentInParent<TerrainTile>() != null)
                 {
                     CubeIndex idx = hit.transform.GetComponentInParent<TerrainTile>().index;
-                    grid.SwapTile(idx, Enums.TerrainType.FOREST);
+                    //grid.SwapTile(idx, Enums.TerrainType.FOREST);
                 }
             }
             return;

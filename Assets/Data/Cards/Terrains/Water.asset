@@ -13,10 +13,20 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   title: Water
-  description: Add Water Terrain
+  description: 'Must be next to:
+
+    - Exactly 2 Water tiles
+
+    OR
+
+    - Edge
+    of board'
   image: {fileID: -8812913224856473369, guid: 0594152c469b40b4883468e886aafffe, type: 3}
+  cardTypeIcon: {fileID: 4768237656608455507, guid: cc09ce98fc02f96459f25f406bac51c2, type: 3}
   color: {r: 0, g: 0.44748855, b: 1, a: 1}
   cardType: 0
   tileType: 6
   tokenType: 050000000600000009000000
+  tokenImage: {fileID: 0}
   probability: 0.25
+  creatureRules: {fileID: 0}

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceceae9b1f929634393ea3454ed10993, type: 3}
+  m_Name: Bird
+  m_EditorClassIdentifier: 
+  title: Bird
+  description: 'Must be at:
+
+    - Forest
+
+    Must be next to:
+
+    - Rabbit / Fish
+    token'
+  image: {fileID: -8067432148182498029, guid: 16df503a7b8a10b4ba28b4b1f0035f43, type: 3}
+  cardTypeIcon: {fileID: 7333774719577200583, guid: 556ceb50f8fbe3f4bbb19732d11a0135, type: 3}
+  color: {r: 0.4528302, g: 0.23907274, b: 0.19793518, a: 1}
+  cardType: 1
+  tileType: 0
+  tokenType: 01000000
+  tokenImage: {fileID: -5064401156898091283, guid: 2852385e78aa8c74e888741f2c624228, type: 3}
+  probability: 1
+  creatureRules: {fileID: 11400000, guid: fa5c99042ce5987408816e003614640f, type: 2}

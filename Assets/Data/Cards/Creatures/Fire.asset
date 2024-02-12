@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceceae9b1f929634393ea3454ed10993, type: 3}
+  m_Name: Fire
+  m_EditorClassIdentifier: 
+  title: Fire
+  description: "Must be at: \n- Forest / Meadow \nMust be next to:\n- no animal tokens"
+  image: {fileID: -4524970995688302789, guid: cf773756b39ca9f4ba3b44f4b85f81f5, type: 3}
+  cardTypeIcon: {fileID: 7333774719577200583, guid: 556ceb50f8fbe3f4bbb19732d11a0135, type: 3}
+  color: {r: 0.55345905, g: 0.55345905, b: 0.55345905, a: 1}
+  cardType: 1
+  tileType: 0
+  tokenType: 0d000000
+  tokenImage: {fileID: 8334651344603559088, guid: 1b944efdcd9289543b1839daa8682efb, type: 3}
+  probability: 1
+  creatureRules: {fileID: 11400000, guid: 72b2bbd50a3b3f24fbab28d96fc8822b, type: 2}

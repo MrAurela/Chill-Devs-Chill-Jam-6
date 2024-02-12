@@ -11,7 +11,7 @@ public class CreatureTokenObject : MonoBehaviour
 
     private CardData token; // Not necessarily needed
 
-    void Start()
+    void Awake()
     {
         HideToken();
     }
@@ -38,8 +38,16 @@ public class CreatureTokenObject : MonoBehaviour
         this.token = token;
 
         textField.text = token.title;
-        if (token.image != null) imageField.sprite = token.image;
-        else imageField.color = token.color;
+        if (token.tokenImage != null)
+        {
+            imageField.sprite = token.tokenImage;
+            imageField.transform.localScale = Vector3.one * 0.1f;
+        }
+        else
+        {
+            imageField.color = token.color;
+            imageField.transform.localScale = Vector3.one * 2.5f;
+        }
 
         textField.enabled = true;
         imageField.enabled = true;

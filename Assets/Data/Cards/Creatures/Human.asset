@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceceae9b1f929634393ea3454ed10993, type: 3}
+  m_Name: Human
+  m_EditorClassIdentifier: 
+  title: Human
+  description: 'Can be at:
+
+    - Any placed tile
+
+    Must be next to:
+
+    - Trash
+    token
+
+    - no Raccoon tokens'
+  image: {fileID: 5502747413095562457, guid: 346e4cf156cfcc246833bd1552c10d63, type: 3}
+  cardTypeIcon: {fileID: 7333774719577200583, guid: 556ceb50f8fbe3f4bbb19732d11a0135, type: 3}
+  color: {r: 0.55345905, g: 0.55345905, b: 0.55345905, a: 1}
+  cardType: 1
+  tileType: 0
+  tokenType: 0a000000
+  tokenImage: {fileID: -803138403708184043, guid: b6099a9bfcb50ab44a14eec97bc31868, type: 3}
+  probability: 1
+  creatureRules: {fileID: 11400000, guid: 72b2bbd50a3b3f24fbab28d96fc8822b, type: 2}

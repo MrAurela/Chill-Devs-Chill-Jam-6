@@ -20,6 +20,8 @@ public class TerrainTile : MonoBehaviour {
     public CubeIndex index;
 	public CreatureToken token;
 
+	public CardData terrainCardData, creatureCardData;
+
 	private GameObject terrainGraphic;
 
     public static Vector3 Corner(Vector3 origin, float radius, int corner, HexOrientation orientation){
@@ -54,29 +56,45 @@ public class TerrainTile : MonoBehaviour {
     {
 		int score = 0;
 
-		// Get neighbour tiles and their creatures
-		List<TerrainType> neighbourTerrains = Grid.inst.Neighbours(index).Values.ToList();
-        List<Enums.CreatureType> neighbourCreatures = Grid.inst.CreatureNeighbours(index).Values.ToList();
-
-        if (placingRule.CheckRules(neighbourTerrains, verbose))
+		if (CheckPlacingRulesTerrain(verbose) == 1)
 		{
-			hex.SetTerrainErrorMarker(false);
-			score += 1;
+            score+= 2;
+            hex.SetTerrainErrorMarker(false);
         } else
 		{
-			hex.SetTerrainErrorMarker(true);
-		}
+			score -= 1;
+            hex.SetTerrainErrorMarker(true);
+        }
 
-		if (token != null && token.creatureRules.CheckRules(tileType, neighbourCreatures))
+		if (token != null)
 		{
-            hex.SetCreatureErrorMarker(false);
-            score += 1;
-        } else if (token != null)
-		{
-			hex.SetCreatureErrorMarker(true);
-		}
+            if (CheckPlacingRulesCreature() == 1)
+            {
+				score += 2;
+                hex.SetCreatureErrorMarker(false);
+            }
+            else
+            {
+				score -= 1;
+                hex.SetCreatureErrorMarker(true);
+            }
+        }
 
 		return score;
+    }
+
+	public virtual int CheckPlacingRulesTerrain(bool verbose=false)
+	{
+        List<TerrainType> neighbourTerrains = Grid.inst.Neighbours(index).Values.ToList();
+        if (placingRule.CheckRules(neighbourTerrains, verbose)) return 1;
+        else return 0;
+    }
+
+	public virtual int CheckPlacingRulesCreature()
+	{
+        List<Enums.CreatureType> neighbourCreatures = Grid.inst.CreatureNeighbours(index).Values.ToList();
+        if (token != null && token.creatureRules.CheckRules(tileType, neighbourCreatures)) return 1;
+        else return 0;
     }
 
     #region Coordinate Conversion Functions

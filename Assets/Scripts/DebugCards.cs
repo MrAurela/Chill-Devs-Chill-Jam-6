@@ -28,7 +28,7 @@ public class DebugCards : MonoBehaviour
 
         if (Grid.inst.TryPlaceTile(idx, card.tileType))
         {
-            Grid.inst.SwapTile(idx, card.tileType);
+            Grid.inst.SwapTile(idx, card.tileType, card);
 
             transform.position = startLocation;
             transform.localScale = startSize;

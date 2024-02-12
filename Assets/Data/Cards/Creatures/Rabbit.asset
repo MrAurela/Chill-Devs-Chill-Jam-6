@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: Rabbit
   m_EditorClassIdentifier: 
   title: Rabbit
-  description: 'Add Rabbit Token.\n\nTerrain: Meadow, Forest'
-  image: {fileID: 0}
+  description: 'Must be at:
+
+    - Meadow / Forest'
+  image: {fileID: 8020089497782336994, guid: 9a841fd76cc201048a589b3e9782c04e, type: 3}
+  cardTypeIcon: {fileID: 7333774719577200583, guid: 556ceb50f8fbe3f4bbb19732d11a0135, type: 3}
   color: {r: 0.81761, g: 0.6106564, b: 0.5270756, a: 1}
   cardType: 1
   tileType: 0
   tokenType: 03000000
+  tokenImage: {fileID: -5362292703166988329, guid: 74737aa52de41a5449902ede71cae37f, type: 3}
   probability: 1
   creatureRules: {fileID: 11400000, guid: 8a28f8a5f777f624fb0ae53d770aec0b, type: 2}
