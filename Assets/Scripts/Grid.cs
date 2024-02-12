@@ -23,6 +23,10 @@ public class Grid : MonoBehaviour {
 	public TextMeshProUGUI scoreText;
 	public int globalScore = 0;
 
+	[Space]
+	public CardData startTerrain;
+	public CardData startToken;
+
 	//Internal variables
 	private Dictionary<string, GameObject> grid = new Dictionary<string, GameObject>();
 
@@ -306,6 +310,12 @@ public class Grid : MonoBehaviour {
 
 		GenerateGrid();
 		UpdateScore();
+    }
+
+	private void Start()
+	{
+        SwapTile(new CubeIndex(5, 1, -6), startTerrain.tileType, startTerrain);
+        AddToken(new CubeIndex(5, 1, -6), startToken);
     }
 
     private void GenHexShape() {

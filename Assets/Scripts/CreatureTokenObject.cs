@@ -11,7 +11,7 @@ public class CreatureTokenObject : MonoBehaviour
 
     private CardData token; // Not necessarily needed
 
-    void Start()
+    void Awake()
     {
         HideToken();
     }

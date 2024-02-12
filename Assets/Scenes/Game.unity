@@ -2398,12 +2398,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapShape: 0
-  mapWidth: 12
-  mapHeight: 6
+  mapWidth: 11
+  mapHeight: 7
   hexOrientation: 1
   hexRadius: 0.5
   scoreText: {fileID: 1606949033}
   globalScore: 0
+  startTerrain: {fileID: 11400000, guid: b3f842a795fcaf24fa90ad34e6ac076e, type: 2}
+  startToken: {fileID: 11400000, guid: bbaf1729b87deaf428e411a7c6bb133b, type: 2}
   hexPrefab: {fileID: 4477776453795517641, guid: c53c988d5719aad4ca5a4d51b081a8a6, type: 3}
 --- !u!4 &1211475454
 Transform:
