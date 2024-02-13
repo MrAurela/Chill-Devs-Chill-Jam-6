@@ -920,7 +920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -681.13, y: -170}
+  m_AnchoredPosition: {x: -681.13, y: -280}
   m_SizeDelta: {x: 557.7419, y: 689.7429}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &519329068
@@ -943,7 +943,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3449118770906549456, guid: e31ebdb05e9398443b2c3d37426c9918, type: 3}
+  m_Sprite: {fileID: 108331932932317731, guid: d5c446bfa74b2744e8fd5314dd6e3585, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -973,9 +973,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d1518acc048f004293c64a90333fb79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  happy: {fileID: -3757296712900065237, guid: 20f2586d432ae0d4db87522c4d25b704, type: 3}
-  neutral: {fileID: -3449118770906549456, guid: e31ebdb05e9398443b2c3d37426c9918, type: 3}
-  scared: {fileID: -4082321973325486386, guid: 641a5fe805800c940932f962be6b0fa1, type: 3}
+  happy: {fileID: -3735048203041347118, guid: a8ddc8de0bc116e4e8035bd7d099850f, type: 3}
+  neutral: {fileID: 108331932932317731, guid: d5c446bfa74b2744e8fd5314dd6e3585, type: 3}
+  scared: {fileID: -8584473524284445064, guid: e9f4c06d747562a4597cccd5591a6d15, type: 3}
   raccoonImage: {fileID: 519329068}
 --- !u!1 &523913074
 GameObject:

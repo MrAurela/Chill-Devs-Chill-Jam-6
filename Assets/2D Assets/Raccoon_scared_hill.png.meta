@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: d5c446bfa74b2744e8fd5314dd6e3585
+guid: e9f4c06d747562a4597cccd5591a6d15
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 108331932932317731
-    second: Raccoon_normal_hill_0
+      213: -8584473524284445064
+    second: Raccoon_scared_hill_0
+  - first:
+      213: 1544212090725654311
+    second: Raccoon_scared_hill_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Raccoon_normal_hill_0
+      name: Raccoon_scared_hill_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 1642
-        height: 1611
+        height: 1732
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +130,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 322234ca15fd08100800000000000000
-      internalID: 108331932932317731
+      spriteID: 87ea749efc2ddd880800000000000000
+      internalID: -8584473524284445064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_scared_hill_1
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 1636
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72fd09507b42e6510800000000000000
+      internalID: 1544212090725654311
       vertices: []
       indices: 
       edges: []

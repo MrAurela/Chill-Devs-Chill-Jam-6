@@ -1,10 +1,22 @@
 fileFormatVersion: 2
-guid: d5c446bfa74b2744e8fd5314dd6e3585
+guid: a8ddc8de0bc116e4e8035bd7d099850f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 108331932932317731
-    second: Raccoon_normal_hill_0
+      213: -3735048203041347118
+    second: Raccoon_happy_hill_0
+  - first:
+      213: 4321612532919399277
+    second: Raccoon_happy_hill_1
+  - first:
+      213: -6601101846327634400
+    second: Raccoon_happy_hill_2
+  - first:
+      213: -6630557518986057812
+    second: Raccoon_happy_hill_3
+  - first:
+      213: -6125739770484484744
+    second: Raccoon_happy_hill_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +125,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Raccoon_normal_hill_0
+      name: Raccoon_happy_hill_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 1642
-        height: 1611
+        height: 1732
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +139,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 322234ca15fd08100800000000000000
-      internalID: 108331932932317731
+      spriteID: 2d962cec2717a2cc0800000000000000
+      internalID: -3735048203041347118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_happy_hill_1
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 1675
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d637989a3b379fb30800000000000000
+      internalID: 4321612532919399277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_happy_hill_2
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 1636
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 026577b48dc2464a0800000000000000
+      internalID: -6601101846327634400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_happy_hill_3
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 1600
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca76a0211178bf3a0800000000000000
+      internalID: -6630557518986057812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Raccoon_happy_hill_4
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 1609
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8751ac162200dfaa0800000000000000
+      internalID: -6125739770484484744
       vertices: []
       indices: 
       edges: []
