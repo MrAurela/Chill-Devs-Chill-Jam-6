@@ -42,6 +42,7 @@ public class TerrainTile : MonoBehaviour {
 			GameObject go = Instantiate(prefab);
 			go.transform.position = gameObject.transform.position;
 			go.transform.parent = gameObject.transform;
+			go.transform.rotation = Quaternion.AngleAxis(Mathf.Round(UnityEngine.Random.Range(0, 6))*60, Vector3.up);
 			terrainGraphic = go;
 		}
 	}

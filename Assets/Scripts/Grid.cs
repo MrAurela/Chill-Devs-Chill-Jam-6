@@ -1,14 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-using System;
 using System.Linq;
 using UnityEngine.UIElements;
-using Unity.VisualScripting;
 using System.Reflection;
 using TMPro;
 using static Enums;
-using static UnityEngine.Rendering.VolumeComponent;
-using UnityEngine.Rendering.Universal;
 using Unity.Mathematics;
 
 public class Grid : MonoBehaviour {
@@ -365,7 +361,6 @@ public class Grid : MonoBehaviour {
 	}
 
 	private void GenRectShape() {
-		Debug.Log ("Generating rectangular shaped grid...");
         TerrainTile tile;
 		Vector3 pos = Vector3.zero;
 
