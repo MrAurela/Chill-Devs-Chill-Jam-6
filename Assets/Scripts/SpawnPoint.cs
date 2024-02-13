@@ -4,7 +4,6 @@ using System.Linq;
 using Unity.Mathematics;
 using UnityEngine;
 
-
 [System.Serializable]
 public class ObjectsCollection
 {
@@ -23,25 +22,8 @@ public class SpawnPoint : MonoBehaviour, ISpawnable
     private void Start()
     {
         spawnPoints = gameObject.GetComponentsInChildren<Transform>().Skip(1).ToList();
-        List<Transform> shuffledPoints = new List<Transform>();
-        int[] shuffled = new int[spawnPoints.Count];
+        spawnPoints = spawnPoints.OrderBy(x => UnityEngine.Random.value).ToList();
 
-        for(int i = 0; i < shuffled.Length ; i++)
-        {
-            UnityEngine.Random.InitState(System.DateTime.Now.Minute+i);
-            int randomIndex = UnityEngine.Random.Range(0, shuffled.Length-1);
-            int newValue = shuffled[randomIndex];
-            int oldValue = shuffled[i];
-            shuffled[i] = newValue;
-            shuffled[randomIndex] = oldValue;
-        }
-
-        foreach(int n in shuffled)
-        {
-            shuffledPoints.Add(spawnPoints[n]);
-            Debug.Log(n);
-        }
-        spawnPoints = shuffledPoints;
         Spawn();
     }
 
@@ -53,7 +35,7 @@ public class SpawnPoint : MonoBehaviour, ISpawnable
         {
             if (spawnedObj >= maxObjects)
                 break;
-            int seed = DateTime.Now.Minute * 100;
+            int seed = DateTime.Now.Second * 100;
             float noise = Mathf.PerlinNoise(seed+t.position.x* biomeNoiseScale,seed+ t.position.y*biomeNoiseScale);
             int collectionIndex = (int)Mathf.Repeat(Mathf.RoundToInt(noise*10), collections.Count);
             List<GameObject> objects = collections[collectionIndex].objectList;
