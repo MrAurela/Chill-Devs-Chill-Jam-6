@@ -18,9 +18,7 @@ public class Grid : MonoBehaviour {
 	public MapShape mapShape = MapShape.Rectangle;
 	public int mapWidth;
 	public int mapHeight;
-	[Space]
-	public float randomHeight =0.05f;
-	public float randomRotation = 2f;
+
     //Hex Settings
 	[Space]
     public HexOrientation hexOrientation = HexOrientation.Flat;
@@ -221,9 +219,10 @@ public class Grid : MonoBehaviour {
 			{
 				TerrainTile t = grid[o.ToString()].GetComponent<TerrainTile>();
 
-                if (t != null)
-				{
+                if (t != null || t.tileType != TerrainType.NULL)
+                {
 					dic.Add(t.index.ToString(), t.tileType);
+					Debug.Log(t.tileType);
 				}
 			}
 			else
@@ -247,8 +246,7 @@ public class Grid : MonoBehaviour {
             {
                 TerrainTile t = grid[o.ToString()].GetComponent<TerrainTile>();
 				
-
-                if (t != null)
+                if (t != null || t.tileType != TerrainType.NULL)
                 {
                     if (t.token != null) dic.Add(t.index.ToString(), t.token.creatureType);
 					else dic.Add(t.index.ToString(), Enums.CreatureType.NULL);
@@ -297,7 +295,7 @@ public class Grid : MonoBehaviour {
             {
                 TerrainTile t = grid[o.ToString()].GetComponent<TerrainTile>();
 
-                if (t != null)
+                if (t != null || t.tileType != TerrainType.NULL)
                 {
                     dic.Add(dir, t.tileType);
                 }
@@ -330,58 +328,10 @@ public class Grid : MonoBehaviour {
 
     private void Start()
 	{
-        SwapTile(new CubeIndex(5, 1, -6), startTerrain.tileType, startTerrain);
-        AddToken(new CubeIndex(5, 1, -6), startToken);
-        FillBorder();
+        SwapTile(new CubeIndex(6, 1, -7), startTerrain.tileType, startTerrain);
+        AddToken(new CubeIndex(6, 1, -7), startToken);
+		Border.inst.FillBorder();
     }
-    private void FillBorder()
-	{
-
-		for(int i = 0; i < grid.Count; i++)
-		{
-			GameObject ob = grid.Values.ElementAt(i);
-            CubeIndex _idx = ob.GetComponent<TerrainTile>().index;
-            List<TerrainType> neighbourTerrains = Neighbours(_idx).Values.ToList();
-
-            foreach (TerrainType t in neighbourTerrains)
-			{
-				if (t == TerrainType.NULL)
-				{
-					float h = UnityEngine.Random.Range(-randomHeight, randomHeight);
-
-                    ob.transform.position = ob.transform.position + (Vector3.up*h);
-					ob.GetComponent<TerrainTile>().Delete();
-					
-					for(int ci = 1; ci < ob.transform.childCount; ci++)
-					{
-						Destroy(ob.transform.GetChild(ci).gameObject);
-					}
-
-					TerrainTile borderTerrain = ob.AddComponent<BorderTerrain>();
-					borderTerrain.index = _idx;
-					borderTerrain.SpawnPrefab();
-
-                    //Vector3 lookAt = Vector3.Normalize(ob.transform.position+(Vector3.up*1.5f));
-                    //borderOb.transform.rotation = Quaternion.LookRotation(lookAt, Vector3.up);
-                    
-					break;
-                }
-			}
-		}
-		
-        for (int i = 0; i < grid.Count; i++)
-        {
-            GameObject ob = grid.Values.ElementAt(i);
-            TerrainType type = ob.GetComponent<TerrainTile>().tileType;
-
-            if (type == TerrainType.BORDER)
-            {
-                Debug.Log(grid.Remove(grid.Keys.ElementAt(i)));
-            }
-        }
-
-    }
-
     private void GenHexShape() {
 		Debug.Log ("Generating hexagonal shaped grid...");
 
