@@ -398,8 +398,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raccoonImageField: {fileID: 1827996469}
-  raccoon: {fileID: -3757296712900065237, guid: 20f2586d432ae0d4db87522c4d25b704, type: 3}
-  delay: 2
+  raccoon: {fileID: -4082321973325486386, guid: 641a5fe805800c940932f962be6b0fa1, type: 3}
+  delay: 1.5
 --- !u!1 &754991228
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,7 +808,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -3449118770906549456, guid: e31ebdb05e9398443b2c3d37426c9918, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
