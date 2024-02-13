@@ -32,12 +32,14 @@ public class RaccoonExpressions : MonoBehaviour
             else this.expression = Expression.Scared;
         } else
         {
-            if (currentScore >= score) this.expression = Expression.Neutral;
-            else if (currentScore >= score + 3) this.expression = Expression.Happy;
+            if (currentScore >= score + 2 ) this.expression = Expression.Happy;
+            else if (currentScore >= score) this.expression = Expression.Neutral;
             else this.expression = Expression.Scared;
         }
 
         SetExpression(this.expression);
+
+        score = currentScore;
     }
 
     private void SetExpression(Expression expression)

@@ -5,9 +5,6 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using UnityEditor.SearchService;
-using Unity.VisualScripting;
 
 
 public class Card : MonoBehaviour
@@ -68,6 +65,8 @@ public class Card : MonoBehaviour
             Grid.inst.AddToken(idx, card);
             
             Destroy(gameObject);
+
+            FindObjectOfType<RaccoonExpressions>().UpdateExpression();
         }
     }
 
