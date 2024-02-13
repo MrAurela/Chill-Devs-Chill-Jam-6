@@ -571,11 +571,11 @@ RectTransform:
   m_Children:
   - {fileID: 1645899232}
   - {fileID: 1827996468}
-  - {fileID: 1689563479}
   - {fileID: 648582315}
   - {fileID: 1025066165}
   - {fileID: 1893683999}
   - {fileID: 854157712}
+  - {fileID: 1689563479}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -596,7 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raccoonImageField: {fileID: 1827996469}
-  raccoon: {fileID: -3757296712900065237, guid: 20f2586d432ae0d4db87522c4d25b704, type: 3}
+  raccoon: {fileID: -4082321973325486386, guid: 641a5fe805800c940932f962be6b0fa1, type: 3}
   delay: 2
 --- !u!1 &854157711
 GameObject:
