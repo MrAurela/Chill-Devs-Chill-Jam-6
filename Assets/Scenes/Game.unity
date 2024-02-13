@@ -389,13 +389,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137935440}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.53695595, y: 0.106167205, z: 0.16233034, w: 0.82100904}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 57.911, y: 41.019, z: 45.756}
 --- !u!114 &137935443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -727,6 +727,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345802961}
   m_CullTransparentMesh: 1
+--- !u!1 &362455024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 362455026}
+  - component: {fileID: 362455025}
+  m_Layer: 0
+  m_Name: BORDER TILES
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &362455025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362455024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17e3a14015677c489cbc92d11895728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomHeight: 0.1
+--- !u!4 &362455026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362455024}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.3846664, y: -12.595194, z: 8.006871}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &388516388
 GameObject:
   m_ObjectHideFlags: 0
@@ -3176,8 +3221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapShape: 0
-  mapWidth: 11
-  mapHeight: 7
+  mapWidth: 13
+  mapHeight: 9
   hexOrientation: 1
   hexRadius: 0.5
   scoreText: {fileID: 1606949033}
@@ -5482,6 +5527,7 @@ SceneRoots:
   - {fileID: 980979840}
   - {fileID: 137935442}
   - {fileID: 1211475454}
+  - {fileID: 362455026}
   - {fileID: 1644051616}
   - {fileID: 670195862}
   - {fileID: 1114012878}

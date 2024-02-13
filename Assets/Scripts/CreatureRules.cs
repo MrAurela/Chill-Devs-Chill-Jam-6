@@ -40,7 +40,7 @@ public class CreatureRules : ScriptableObject
             }
         }
 
-        if (preys.Count != 0) Debug.Log("Prey rule failed.");
+        //if (preys.Count != 0) Debug.Log("Prey rule failed.");
         // If there is no prey, the rule is still valid
         return preys.Count == 0;
     }

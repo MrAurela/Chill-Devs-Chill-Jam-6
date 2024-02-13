@@ -9,6 +9,7 @@ using TMPro;
 using static Enums;
 using static UnityEngine.Rendering.VolumeComponent;
 using UnityEngine.Rendering.Universal;
+using Unity.Mathematics;
 
 public class Grid : MonoBehaviour {
 	public static Grid inst;
@@ -18,8 +19,9 @@ public class Grid : MonoBehaviour {
 	public int mapWidth;
 	public int mapHeight;
 
-	//Hex Settings
-	public HexOrientation hexOrientation = HexOrientation.Flat;
+    //Hex Settings
+	[Space]
+    public HexOrientation hexOrientation = HexOrientation.Flat;
 	public float hexRadius = 0.5f;
 
 	[Space]
@@ -71,6 +73,7 @@ public class Grid : MonoBehaviour {
 		GameObject ob = TileObjectAt(_idx);
 		TerrainTile newTerrain = null;
 		CardData oldCreature = ob.GetComponent<TerrainTile>().creatureCardData;
+
         TileObjectAt(_idx).GetComponent<TerrainTile>().Delete();
 		
 		switch(_type)
@@ -102,8 +105,8 @@ public class Grid : MonoBehaviour {
 			newTerrain.index = _idx;
             newTerrain.SpawnPrefab();
             newTerrain.terrainCardData = _card;
-			newTerrain.creatureCardData = oldCreature;
-            UpdateScore();
+			if (oldCreature != null) AddToken(_idx, oldCreature);
+			else UpdateScore();
         }
     }
 
@@ -123,17 +126,9 @@ public class Grid : MonoBehaviour {
 	public int UpdateScore()
 	{
         globalScore = 0;
-        foreach (GameObject ob in Tiles.Values)
+        foreach (GameObject ob in grid.Values)
 		{
-			if(ob.GetComponent<TerrainTile>().tileType != Enums.TerrainType.DESOLATE)
-			{
-				int result = ob.GetComponent<TerrainTile>().CheckPlacingRules();
-                globalScore += ob.GetComponent<TerrainTile>().CheckPlacingRules();
-            }
-			else
-			{
-				//ob.GetComponent<TerrainTile>().CheckPlacingRules();
-            }
+            globalScore += ob.GetComponent<TerrainTile>().CheckPlacingRules();
 		}
         scoreText.text = globalScore.ToString();
 
@@ -226,8 +221,8 @@ public class Grid : MonoBehaviour {
 			{
 				TerrainTile t = grid[o.ToString()].GetComponent<TerrainTile>();
 
-                if (t != null)
-				{
+                if (t != null || t.tileType != TerrainType.NULL)
+                {
 					dic.Add(t.index.ToString(), t.tileType);
 				}
 			}
@@ -252,8 +247,7 @@ public class Grid : MonoBehaviour {
             {
                 TerrainTile t = grid[o.ToString()].GetComponent<TerrainTile>();
 				
-
-                if (t != null)
+                if (t != null || t.tileType != TerrainType.NULL)
                 {
                     if (t.token != null) dic.Add(t.index.ToString(), t.token.creatureType);
 					else dic.Add(t.index.ToString(), Enums.CreatureType.NULL);
@@ -302,7 +296,7 @@ public class Grid : MonoBehaviour {
             {
                 TerrainTile t = grid[o.ToString()].GetComponent<TerrainTile>();
 
-                if (t != null)
+                if (t != null || t.tileType != TerrainType.NULL)
                 {
                     dic.Add(dir, t.tileType);
                 }
@@ -333,12 +327,12 @@ public class Grid : MonoBehaviour {
 		UpdateScore();
     }
 
-	private void Start()
+    private void Start()
 	{
-        SwapTile(new CubeIndex(5, 1, -6), startTerrain.tileType, startTerrain);
-        AddToken(new CubeIndex(5, 1, -6), startToken);
+        SwapTile(new CubeIndex(6, 1, -7), startTerrain.tileType, startTerrain);
+        AddToken(new CubeIndex(6, 1, -7), startToken);
+		Border.inst.FillBorder();
     }
-
     private void GenHexShape() {
 		Debug.Log ("Generating hexagonal shaped grid...");
 
@@ -434,7 +428,8 @@ public class Grid : MonoBehaviour {
 	}
 
 	private TerrainTile CreateHexGO(Vector3 position, string name) {
-		GameObject go = Instantiate(hexPrefab);
+
+        GameObject go = Instantiate(hexPrefab);
 		go.name = name;
 		go.transform.position = position;
         go.transform.parent = this.transform;

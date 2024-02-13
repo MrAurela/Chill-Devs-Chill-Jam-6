@@ -167,7 +167,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      raccon_scared_0: -4082321973325486386
+      raccon_scared_1: 1267693531389245704
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

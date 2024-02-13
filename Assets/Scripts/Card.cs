@@ -76,7 +76,6 @@ public class Card : MonoBehaviour
         //If card is a terrain:
         if (card.cardType == Enums.CardType.TILE)
         {
-
             // Replacing with the same card is always invalid:
             if (terrain.tileType == card.tileType) return false;
 
@@ -88,10 +87,10 @@ public class Card : MonoBehaviour
             }
 
             // ..or the tile itself is not DESOLATE.
-            return terrain.tileType != Enums.TerrainType.DESOLATE;
+            return terrain.tileType != Enums.TerrainType.DESOLATE && terrain.tileType != Enums.TerrainType.NULL;
         } else if (card.cardType == Enums.CardType.TOKEN)
         {
-            Debug.Log(terrain.token);
+            //Debug.Log(terrain.token);
             // There cannot be tokens on the same space:
             return terrain.token == null;
         } else

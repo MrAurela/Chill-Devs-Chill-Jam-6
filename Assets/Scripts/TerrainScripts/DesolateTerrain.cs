@@ -12,4 +12,18 @@ public class DesolateTerrain : TerrainTile
         tileType = Enums.TerrainType.DESOLATE;
         base.SpawnPrefab();
     }
+
+    public override int CheckPlacingRules(bool verbose = false)
+    {
+        if (token != null && creatureToken != null)
+        {
+            //hex.SetCreatureErrorMarker(true);
+            creatureToken.ErrorToggle(true);
+            return -1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
 }

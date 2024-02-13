@@ -71,5 +71,4 @@ public class CreatureTokenObject : MonoBehaviour
 
         imageField.material.SetFloat("_EnableError", toggle ? 1 : 0);
     }
-
 }
