@@ -8,17 +8,51 @@ public class RaccoonExpressions : MonoBehaviour
     [SerializeField] Sprite happy, neutral, scared;
     [SerializeField] Image raccoonImage;
 
+    private enum Expression { Happy, Neutral, Scared };
+    private Expression expression;
+
+    private int score;
+
     // Start is called before the first frame update
     void Start()
     {
-        raccoonImage.sprite = neutral;
+        this.expression = Expression.Neutral;
+        SetExpression(this.expression);
+        score = 1;
     }
 
     public void UpdateExpression()
     {
-        float random = Random.Range(0, 100);
-        if (random > 75) raccoonImage.sprite = happy;
-        else if (random > 50) raccoonImage.sprite = scared;
-        else raccoonImage.sprite = neutral;
+        int currentScore = FindObjectOfType<Grid>().UpdateScore();
+
+        if (FindObjectOfType<Hand>().GetCardCount() == 0)
+        {
+            if (currentScore >= 110) this.expression = Expression.Happy;
+            else if (currentScore >= 60) this.expression = Expression.Neutral;
+            else this.expression = Expression.Scared;
+        } else
+        {
+            if (currentScore >= score) this.expression = Expression.Neutral;
+            else if (currentScore >= score + 3) this.expression = Expression.Happy;
+            else this.expression = Expression.Scared;
+        }
+
+        SetExpression(this.expression);
+    }
+
+    private void SetExpression(Expression expression)
+    {
+        switch (expression)
+        {
+            case Expression.Happy:
+                raccoonImage.sprite = happy;
+                break;
+            case Expression.Neutral:
+                raccoonImage.sprite = neutral;
+                break;
+            case Expression.Scared:
+                raccoonImage.sprite = scared;
+                break;
+        }
     }
 }

@@ -30,6 +30,8 @@ public class GameEnd : MonoBehaviour
 
             int score = FindObjectOfType<Grid>().UpdateScore();
             scoreField.text = score.ToString();
+
+            FindObjectOfType<RaccoonExpressions>().UpdateExpression();
         }
         
     }
