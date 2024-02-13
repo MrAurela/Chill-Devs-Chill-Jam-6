@@ -224,7 +224,6 @@ public class Grid : MonoBehaviour {
                 if (t != null || t.tileType != TerrainType.NULL)
                 {
 					dic.Add(t.index.ToString(), t.tileType);
-					Debug.Log(t.tileType);
 				}
 			}
 			else
