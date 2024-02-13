@@ -8,7 +8,8 @@ public static class Enums
         SWAMP,
         FOREST,
         ROCK,
-        WATER
+        WATER,
+        BORDER
     }
 
     public enum RuleLogic

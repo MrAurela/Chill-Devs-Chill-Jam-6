@@ -128,7 +128,7 @@ public class Grid : MonoBehaviour {
 	public void UpdateScore()
 	{
         globalScore = 0;
-        foreach (GameObject ob in Tiles.Values)
+        foreach (GameObject ob in grid.Values)
 		{
             globalScore += ob.GetComponent<TerrainTile>().CheckPlacingRules();
 		}
@@ -328,10 +328,58 @@ public class Grid : MonoBehaviour {
 		UpdateScore();
     }
 
-	private void Start()
+    private void Start()
 	{
         SwapTile(new CubeIndex(5, 1, -6), startTerrain.tileType, startTerrain);
         AddToken(new CubeIndex(5, 1, -6), startToken);
+        FillBorder();
+    }
+    private void FillBorder()
+	{
+
+		for(int i = 0; i < grid.Count; i++)
+		{
+			GameObject ob = grid.Values.ElementAt(i);
+            CubeIndex _idx = ob.GetComponent<TerrainTile>().index;
+            List<TerrainType> neighbourTerrains = Neighbours(_idx).Values.ToList();
+
+            foreach (TerrainType t in neighbourTerrains)
+			{
+				if (t == TerrainType.NULL)
+				{
+					float h = UnityEngine.Random.Range(-randomHeight, randomHeight);
+
+                    ob.transform.position = ob.transform.position + (Vector3.up*h);
+					ob.GetComponent<TerrainTile>().Delete();
+					
+					for(int ci = 1; ci < ob.transform.childCount; ci++)
+					{
+						Destroy(ob.transform.GetChild(ci).gameObject);
+					}
+
+					TerrainTile borderTerrain = ob.AddComponent<BorderTerrain>();
+					borderTerrain.index = _idx;
+					borderTerrain.SpawnPrefab();
+
+                    //Vector3 lookAt = Vector3.Normalize(ob.transform.position+(Vector3.up*1.5f));
+                    //borderOb.transform.rotation = Quaternion.LookRotation(lookAt, Vector3.up);
+                    
+					break;
+                }
+			}
+		}
+		
+        for (int i = 0; i < grid.Count; i++)
+        {
+            GameObject ob = grid.Values.ElementAt(i);
+            TerrainType type = ob.GetComponent<TerrainTile>().tileType;
+
+            if (type == TerrainType.BORDER)
+            {
+                Debug.Log(grid.Remove(grid.Keys.ElementAt(i)));
+            }
+        }
+
     }
 
     private void GenHexShape() {

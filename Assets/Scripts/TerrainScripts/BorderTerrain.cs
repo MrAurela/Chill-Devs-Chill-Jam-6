@@ -9,7 +9,7 @@ public class BorderTerrain : TerrainTile
     {
         placingRule = Resources.Load<TerrainPlacingRules>("TerrainData/DesolatePlacingRule");
         resourcePath = "TerrainTiles/BorderTerrain";
-        tileType = Enums.TerrainType.NULL;
+        tileType = Enums.TerrainType.BORDER;
         base.SpawnPrefab();
     }
 }

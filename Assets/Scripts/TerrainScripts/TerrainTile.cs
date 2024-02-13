@@ -193,10 +193,9 @@ public struct CubeIndex {
 	}
     public CubeIndex(string s)
     {
-		s.Remove(0, 4);
-		s.TrimEnd(']');
+		s = s.TrimStart('[');
+		s = s.TrimEnd(']');
         string[] values = s.Split(',');
-		Debug.Log(values[0] + " " + values[1] + " " + values[2]);
 		this.x = int.Parse(values[0], System.Globalization.NumberStyles.Integer);
         this.y = int.Parse(values[1], System.Globalization.NumberStyles.Integer);
         this.z = int.Parse(values[2], System.Globalization.NumberStyles.Integer);
