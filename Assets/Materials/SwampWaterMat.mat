@@ -97,10 +97,10 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0, g: 0.7328645, b: 0.9607843, a: 1}
-    - _Deep_Water: {r: 0.44313726, g: 0.32595137, b: 0.0980392, a: 0}
+    - _Deep_Water: {r: 0.40891704, g: 0.4528302, b: 0.13883945, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Foam_Color: {r: 0.621576, g: 0.6320754, b: 0.2653523, a: 0.12156863}
-    - _Ground_Color: {r: 0.54094976, g: 0.6698113, b: 0.3507031, a: 0}
+    - _Foam_Color: {r: 0.621576, g: 0.6320754, b: 0.26535228, a: 0.11372549}
+    - _Ground_Color: {r: 0.5660378, g: 0.46844998, b: 0.3070488, a: 0}
     - _Shallow_Water: {r: 0.8287655, g: 0.9528302, b: 0.35506406, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

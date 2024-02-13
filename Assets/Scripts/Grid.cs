@@ -327,6 +327,7 @@ public class Grid : MonoBehaviour {
 	{
         SwapTile(new CubeIndex(6, 1, -7), startTerrain.tileType, startTerrain);
         AddToken(new CubeIndex(6, 1, -7), startToken);
+		UpdateScore();
 		Border.inst.FillBorder();
     }
     private void GenHexShape() {

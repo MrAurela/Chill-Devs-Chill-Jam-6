@@ -12,4 +12,8 @@ public class BorderTerrain : TerrainTile
         tileType = Enums.TerrainType.BORDER;
         base.SpawnPrefab();
     }
+    public override int CheckPlacingRules(bool verbose = false)
+    {
+        return 0;
+    }
 }
