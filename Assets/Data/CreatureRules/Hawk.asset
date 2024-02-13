@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hawk
   m_EditorClassIdentifier: 
   habitant: 05000000
-  preys: 0300000001000000
+  preys: 03000000
   friends: 
   enemies: 
   spreadingProbability: 0

@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Bear
   m_EditorClassIdentifier: 
   title: Bear
-  description: 'Must be at:
+  description: 'Terrain: Forest
 
-    - Forest
+    Next to:
 
-    Must be next to:
+    - Deer OR Fish
 
-    - Rabbit / Fish
-    token
+    Avoids:
 
-    - no Bears'
+    -
+    Bear AND Wolf'
   image: {fileID: -3173569055928726973, guid: 97965b0f3e3f2ae48bd1183ddefa1e4c, type: 3}
   cardTypeIcon: {fileID: 7333774719577200583, guid: 556ceb50f8fbe3f4bbb19732d11a0135, type: 3}
   color: {r: 0.4528302, g: 0.23907274, b: 0.19793518, a: 1}

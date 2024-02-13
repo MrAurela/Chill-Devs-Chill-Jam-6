@@ -123,7 +123,7 @@ public class Grid : MonoBehaviour {
 		UpdateScore();
     }
 
-	public void UpdateScore()
+	public int UpdateScore()
 	{
         globalScore = 0;
         foreach (GameObject ob in grid.Values)
@@ -131,6 +131,8 @@ public class Grid : MonoBehaviour {
             globalScore += ob.GetComponent<TerrainTile>().CheckPlacingRules();
 		}
         scoreText.text = globalScore.ToString();
+
+		return globalScore;
     }
     
 	#region Public Methods

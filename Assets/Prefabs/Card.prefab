@@ -217,8 +217,12 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Terrain Requirement:
 
-    Place next to exactly 2 Water terrain or at
-    the edge of the board'
+    There should be room for
+
+    around 5 lines
+    of text
+
+    so that everything can fit in even with many rules.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f51538e90ab2a96439767870eedb7f4c, type: 2}
   m_sharedMaterial: {fileID: -5589202427965926598, guid: f51538e90ab2a96439767870eedb7f4c, type: 2}
@@ -245,8 +249,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.7
-  m_fontSizeBase: 20.7
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
