@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Mathematics;
@@ -19,11 +18,30 @@ public class SpawnPoint : MonoBehaviour, ISpawnable
     public float objectsScale = 0.1f;
     public float objectsMinScale = 0.35f;
     public float biomeNoiseScale = 1f;
-    private Transform[] spawnPoints;
+    private List<Transform> spawnPoints;
 
     private void Start()
     {
-        spawnPoints = gameObject.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+        spawnPoints = gameObject.GetComponentsInChildren<Transform>().Skip(1).ToList();
+        List<Transform> shuffledPoints = new List<Transform>();
+        int[] shuffled = new int[spawnPoints.Count];
+
+        for(int i = 0; i < shuffled.Length ; i++)
+        {
+            UnityEngine.Random.InitState(System.DateTime.Now.Minute+i);
+            int randomIndex = UnityEngine.Random.Range(0, shuffled.Length-1);
+            int newValue = shuffled[randomIndex];
+            int oldValue = shuffled[i];
+            shuffled[i] = newValue;
+            shuffled[randomIndex] = oldValue;
+        }
+
+        foreach(int n in shuffled)
+        {
+            shuffledPoints.Add(spawnPoints[n]);
+            Debug.Log(n);
+        }
+        spawnPoints = shuffledPoints;
         Spawn();
     }
 
