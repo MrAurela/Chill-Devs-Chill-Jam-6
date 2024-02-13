@@ -18,7 +18,7 @@ MonoBehaviour:
     - Water tile
 
     - Forest tile'
-  image: {fileID: -4942233077130706934, guid: d803d2dde0a0bb545a1b633fed343437, type: 3}
+  image: {fileID: 6385349694562081825, guid: 249a8aeec20852d4db4394d8948f8ab6, type: 3}
   cardTypeIcon: {fileID: 4768237656608455507, guid: cc09ce98fc02f96459f25f406bac51c2, type: 3}
   color: {r: 0.3333333, g: 0.19811316, b: 0.18039216, a: 1}
   cardType: 0
