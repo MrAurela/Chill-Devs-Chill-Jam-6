@@ -5,10 +5,6 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using UnityEditor.SearchService;
-using Unity.VisualScripting;
-
 
 public class Card : MonoBehaviour
 {
