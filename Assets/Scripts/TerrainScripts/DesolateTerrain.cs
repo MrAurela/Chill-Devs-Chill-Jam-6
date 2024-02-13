@@ -15,6 +15,7 @@ public class DesolateTerrain : TerrainTile
 
     public override int CheckPlacingRules(bool verbose = false)
     {
+        return 0;
         if (token != null && creatureToken != null)
         {
             //hex.SetCreatureErrorMarker(true);
